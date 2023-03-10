@@ -46,18 +46,17 @@
             </div>
             <img
               class="large-screen side-image"
-              style="position: absolute; height: 100%; max-height: 22vh"
+              style="position: absolute; height: 100%; max-height: 22vh; display: none;"
               :src="require('@/assets/media/Rectangle 19.png').default"
             />
-            <v-table class="large-screen" density="compact" border="1">
+            <div class="scale-gradient"></div>
+            <v-table class="result-table large-screen" density="compact" border="1">
               <tbody>
                 <tr>
                   <td
                     width="100px"
                     style="
-                      border-bottom: 1px solid;
-                      opacity: 0.2;
-                      border-top: 1px solid rgb(255 255 255 / 24%);
+                      border-bottom: 1px solid rgb(16 33 50 / 20%);
                     "
                   ></td>
                   <td
@@ -78,7 +77,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <td class="p-2 border-bottom-row"></td>
+                  <td class="p-2 border-bottom-row" style="border-bottom: 1px solid rgb(16 33 50 / 20%)"></td>
                   <td class="border-bottom-row p-2 pl-5 pt-4">
                     <div class="table-title">Some Difficulty Hearing</div>
                   </td>
@@ -90,7 +89,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <td class="p-2 border-bottom-row"></td>
+                  <td class="p-2 border-bottom-row" style="border: none"></td>
                   <td
                     class="border-bottom-row p-2 pl-5 pt-4"
                     style="width: 17vh"
@@ -206,14 +205,16 @@ export default {
   display: flex;
   gap: 0px;
   max-width: 33vw;
-  padding-left: 2%;
+  /* padding-left: 2%;
   padding-right: 2%;
-  padding-bottom: 2%;
+  padding-bottom: 2%; */
+  padding: 2%;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  padding-top: 0px;
+  /* padding-top: 0px; */
   border-radius: 10px;
   background: #1f2f40 !important;
+  position: relative;
 }
 .side-image {
      position: absolute;
@@ -231,12 +232,13 @@ export default {
   text-transform: uppercase;
   top: 17vh;
   width: 4.7vw;
-  position: relative;
+  position: absolute;
   background: #fff;
   color: #102132;
   background: #ffffff;
-  margin-left: 1px;
+  /* margin-left: 1px; */
   border-radius: 3px;
+  text-align: center;
 }
 .small-screen {
   display: none;
@@ -260,6 +262,11 @@ export default {
 }
 :deep() .v-table > table > tbody > tr {
   border-bottom: thin solid rgba(var(--v-border-color), var(--v-border-opacity));
+}
+
+.result-table {
+  position: relative;
+  z-index: 2;
 }
 
 /* .completing-input >>> .country-selector__toggle {
@@ -445,5 +452,16 @@ export default {
   font-weight: 500;
   font-size: 24px;
   line-height: 36px;
+}
+.scale-gradient {
+  background: linear-gradient(180deg, #4CBC25 0%, #FFE600 50%, #FF3B16 100%);
+  border-radius: 5px;
+
+  height: 100%;
+
+  width: 4.7vw;
+  height: calc(95% - 4px);
+  position: absolute;
+  z-index: 1;
 }
 </style>

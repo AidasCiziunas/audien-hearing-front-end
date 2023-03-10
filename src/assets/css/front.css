@@ -1164,31 +1164,7 @@ theme--light.v-divider {
     /* background: linear-gradient(rgb(217 217 217 / 0%) 48.35%, rgb(217 217 217 / 15%) 80%); */
 }
 
-.button-dev {
-    background: #1f2f40;
-    border-radius: 10px;
-    height: 150px;
-    width: 150px;
-}
 
-.button-placeholder {
-    padding-top: 5px;
-    text-align: center;
-    width: auto;
-    width: 70;
-}
-
-.text-card {
-    font-family: 'Lato';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 20px;
-    padding-left: 4%;
-    padding-top: 6%;
-    padding-right: 4%;
-    color: #FFFFFF;
-}
 
 .circle {
 
