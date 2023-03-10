@@ -82,11 +82,10 @@
           >
             <img :src="require('@/assets/media/rotate-cw.png')"
           /></v-btn>
-          <v-btn class="warning-button mt-2" @click="$router.push('/finish')"
-            >Hear the benefit of a hearing aid
-
-            <img class="ml-2" :src="require('@/assets/media/arrow-right.png')"
-          /></v-btn>
+          <v-btn class="warning-button mt-2" @click="$router.push('/finish')">
+            Take the test again
+            <img class="ml-2" :src="require('@/assets/media/arrow-right.png')" />
+          </v-btn>
         </div>
       </div>
       <div class="back-office-page mobile-right right-side">

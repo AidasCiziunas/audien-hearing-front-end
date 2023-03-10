@@ -85,7 +85,7 @@
   </div>
 </template>
 <script>
-import headphone from '../../views/audien/headephone.vue';
+import headphone from '../../views/audien/headephone2.vue';
 import footerVue from '@/components/audien/footer.vue';
 import headerVue from '@/components/audien/header.vue';
 export default {
@@ -101,16 +101,30 @@ export default {
   },
 };
 </script>
+<style>
+.v-slider__thumb {
+  border-radius: 2px;
+  height: 32px;
+  width: 10px;
+}
+.v-slider__thumb::after {
+  display: none;
+}
+.v-slider__thumb::before {
+  display: none;
+}
+</style>
 <style scoped>
 .volume{
-  z-index: -11;
+  /* z-index: -11; */
 }
+
 >>> .v-slider__ticks-container .v-slider__tick:nth-child(1) {
   height: 10px !important;
   width: 1px !important;
   position: absolute !important;
   /* top: 35% !important; */
-  z-index: -111;
+  /* z-index: -111; */
   background: #fff !important;
   opacity: 0.2;
   right: 2% !important;
@@ -118,7 +132,7 @@ export default {
 }
 >>> .v-slider__ticks-container .v-slider__tick:nth-child(2) {
   height: 13px !important;
-  z-index: -111;
+  /* z-index: -111; */
   width: 1px !important;
   position: absolute !important;
   /* top: % !important; */
@@ -128,8 +142,8 @@ export default {
 }
 >>> .v-slider__ticks-container .v-slider__tick:nth-child(3) {
   height: 15px !important;
-  z-index: -111;
-  width: 2px !important;
+  /* z-index: -111; */
+  width: 1px !important;
   position: absolute !important;
   /* top: -100% !important; */
   /* bottom: 3px; */
@@ -140,29 +154,29 @@ export default {
 >>> .v-slider__ticks-container .v-slider__tick:nth-child(4) {
   height: 20px !important;
   width: 1px !important;
-  z-index: -111;
+  /* z-index: -111; */
 
   position: absolute !important;
   /* top: 22% !important; */
   margin-top: -4px;
   background-color: #fff;
   opacity: 0.2;
-  z-index: -111;
+  /* z-index: -111; */
 }
 >>> .v-slider__ticks-container .v-slider__tick:nth-child(5) {
   height: 25px !important;
-  z-index: -111;
+  /* z-index: -111; */
   width: 1px !important;
   position: absolute !important;
   margin-top: -6px;
-  z-index: -111;
+  /* z-index: -111; */
   background-color: #fff;
   opacity: 0.2;
 }
 >>> .v-slider__ticks-container .v-slider__tick:nth-child(6) {
   height: 35px !important;
   width: 1px !important;
-  z-index: -111;
+  /* z-index: -111; */
   position: absolute !important;
   margin-top: -9px;
   background-color: #fff;
@@ -171,7 +185,7 @@ export default {
 >>> .v-slider__ticks-container .v-slider__tick:nth-child(7) {
   height: 40px !important;
   width: 1px !important;
-  z-index: -111;
+  /* z-index: -111; */
   position: absolute !important;
   margin-top: -11px;
   background-color: #fff;
@@ -180,7 +194,7 @@ export default {
 >>> .v-slider__ticks-container .v-slider__tick:nth-child(8) {
   height: 45px !important;
   width: 1px !important;
-  z-index: -111;
+  /* z-index: -111; */
   position: absolute !important;
   margin-top: -14px;
   background-color: #fff;
@@ -189,7 +203,7 @@ export default {
 >>> .v-slider__ticks-container .v-slider__tick:nth-child(9) {
   height: 50px !important;
   width: 1px !important;
-  z-index: -111;
+  /* z-index: -111; */
   position: absolute !important;
   margin-top: -16px;
   background-color: #fff;
@@ -197,7 +211,7 @@ export default {
 }
 >>> .v-slider__ticks-container .v-slider__tick:nth-child(10) {
   height: 50px !important;
-  z-index: -111;
+  /* z-index: -111; */
   width: 1px !important;
   position: absolute !important;
   margin-top: -18px;
@@ -206,7 +220,7 @@ export default {
 }
 >>> .v-slider__ticks-container .v-slider__tick:nth-child(11) {
   height: 50px !important;
-  z-index: -111;
+  /* z-index: -111; */
   width: 1px !important;
   position: absolute !important;
   margin-top: -18px;

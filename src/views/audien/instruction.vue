@@ -34,7 +34,7 @@
           /></v-btn>
         </div>
       </div>
-    <div class="back-office-page mobile-right right-side">
+    <div class="back-office-page mobile-right right-side banner-with-person">
         <div class="banner-image">
           <img :src="require('@/assets/media/instruction.png').default" />
         </div>

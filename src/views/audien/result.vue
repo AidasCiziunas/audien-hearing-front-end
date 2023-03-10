@@ -128,7 +128,7 @@
           /></v-btn>
         </div>
       </div>
-      <div class="back-office-page mobile-right right-side">
+      <div class="back-office-page mobile-right right-side banner-with-person">
         <div class="banner-image">
           <img :src="require('@/assets/media/test-women.png').default" />
         </div>
@@ -140,11 +140,11 @@
 <script>
 import footerVue from '@/components/audien/footer.vue';
 import headerComponent from '@/components/audien/header.vue';
-import PhoneNumSelect from '@/components/common/widgets/PhoneNumSelect.vue';
+// import PhoneNumSelect from '@/components/common/widgets/PhoneNumSelect.vue';
 
 export default {
   components: {
-    PhoneNumSelect,
+    // PhoneNumSelect,
     footerVue,
     headerComponent,
   },

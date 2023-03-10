@@ -68,7 +68,7 @@
   </div>
 </template>
 <script>
-import headephone from './headephone.vue';
+import headephone from './headephone2.vue';
 import footerVue from '@/components/audien/footer.vue';
 import headerVue from '@/components/audien/header.vue';
 
@@ -99,13 +99,14 @@ export default {
   margin-right: auto;
 }
 .ex1 span {
+  padding-bottom: 25px;
   display: block;
   /* padding: 24px 4px 3px 11px; */
   border: 2px solid #142435;
   background: #1f2f40;
   border-radius: 5px;
   width: 11vw;
-  height: 8.2vw;
+  /* height: 8.2vw; */
   padding-top: 27px;
   position: relative;
   border-radius: 10px;

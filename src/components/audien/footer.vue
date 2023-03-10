@@ -36,7 +36,7 @@
 }
 .footer-area {
   background: #07121c;
-  height: 10vh;
+  /* height: 10vh; */
 }
 .v-btn:not(.v-btn--round).v-size--default {
   height: 32px;

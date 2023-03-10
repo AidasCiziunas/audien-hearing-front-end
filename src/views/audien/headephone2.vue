@@ -1,19 +1,20 @@
 <template>
   <div class="headphone">
-    <div class="banner-image">
+    <div class="headphone-image">
       <img :src="require('@/assets/media/headphones.png').default" />
-    </div>
-    <div class="banner-button">
-      <div class="gradient-one">
-        <div class="gradient-two">
-          <button @click="$router.push('/birth-day')" class="get-start">
-            <img :src="require('@/assets/media/sound.png')" />
-          </button>
+      <div style="position: absolute;">
+        <div class="banner-button">
+          <div class="gradient-one">
+            <div class="gradient-two">
+              <button @click="$router.push('/birth-day')" class="get-start">
+                <img :src="require('@/assets/media/sound.png')" />
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  <!-- </div> -->
 </template>
 <style scoped>
 @media only screen and (min-width: 301px) and (max-width: 800px) {
@@ -689,11 +690,12 @@
 }
 /* sdsds */
 .headphone {
-  position: fixed;
-  top: 58vh;
-  right: 68vh;
+  margin-top: 11vh;
+  display: inline-block;
+  position: relative;
+  left: -3vw;
 }
-@media only screen and (min-width: 801px) and (max-width: 1400px) {
+/* @media only screen and (min-width: 801px) and (max-width: 1400px) {
   .headphone {
     position: absolute !important;
     top: 15vh !important;
@@ -712,24 +714,29 @@
     left: 162vh !important;
     height: 10vh !important;
   }
-}
+} */
 .get-start img {
-  position: absolute;
-  left: 6vh;
-  height: 14vh;
+  /* position: absolute; */
+  /* left: 6vh; */
+  height: 10vh;
 }
 
 .gradient-two {
+  display: flex;  
+  align-items: center;
+  justify-content: center;
+
   position: relative;
-  top: 0px;
+  /* top: 0px; */
   border-radius: 50%;
   z-index: 1;
   /* margin: -5.1vw; */
-  width: 32vh !important;
-  height: 32vh;
+  /* width: 32vh !important; */
+  /* height: 32vh; */
+  padding: 3vh;
   /* bottom: 24px !important; */
-  top: 3vh;
-  left: 1.5vw !important;
+  /* top: 3vh; */
+  /* left: 1.5vw !important; */
   background: -webkit-gradient(
     linear,
     right top,
@@ -740,16 +747,21 @@
   background: linear-gradient(270deg, #ffb40442 26%, rgb(255 180 4 / 2%) 151%);
 }
 .gradient-one {
+  display: flex;  
+  align-items: center;
+  justify-content: center;
+
   position: relative;
-  top: 0px;
+  /* top: 0px; */
   border-radius: 50%;
   z-index: 1;
   /* margin: -5.1vw; */
-  width: 38vh !important;
-  height: 38vh;
+  /* width: 38vh !important; */
+  /* height: 38vh; */
+  padding: 3vh;
   /* bottom: 24px; */
-  top: 5vh;
-  left: 6vw !important;
+  /* top: 5vh; */
+  /* left: 6vw !important; */
   background: -webkit-gradient(
     linear,
     right top,
@@ -760,80 +772,64 @@
   background: linear-gradient(270deg, #ffb40442 26%, rgb(255 180 4 / 2%) 151%);
 }
 
-/* .yellow-circle {
-  
-    width: 34vh;
-    height: 34vh;
-    border-radius: 50%;
-    left: 6vw;
-   background: -webkit-gradient(linear, left top, left bottom, from(#FFB404), to(rgba(255, 180, 4, 0)));
-    background: linear-gradient(180deg, #FFB404 0%, rgba(255, 180, 4, 0) 100%);
-      opacity: 0.3;
+.headphone-image {
+  /* position: fixed; */
+  /* right: 5%; */
+  /* top: 15vh; */
+  /* height: 10vh; */
+  display: flex;  
+  /* align-items: center; */
+  justify-content: center;
+  align-items: flex-end;
 }
-.yellow-circle-2 {
-    position: absolute;
-    bottom: 14vw;
-   
-    width: 29vh;
-    height: 29vh;
-    border-radius: 50%;
-    left: 6vw;
-    background: -webkit-gradient(linear, left top, left bottom, from(#FFB404), to(rgba(255, 180, 4, 0)));
-    background: linear-gradient(180deg, #FFB404 0%, rgba(255, 180, 4, 0) 100%);
-    opacity: 0.3;
-} */
-.yellow-button {
-  background-color: rgb(255, 180, 4);
-  border-color: rgb(255, 180, 4);
-  position: absolute !important;
-  top: 45vh;
-  position: absolute;
-  right: 45vh;
-  width: 22vh !important;
-  height: 21vh !important;
-  z-index: 2147483647;
-  border-radius: 50%;
-}
-.banner-image {
-  position: fixed;
-  right: 5%;
-  top: 15vh;
-  height: 10vh;
+.headphone-image > img {
+  height: 60vh;
 }
 .banner-button {
-  position: fixed;
-  top: 57vh;
-  right: 63.3vh;
-  z-index: 1;
+  /* position: fixed; */
+  /* top: 57vh; */
+  /* right: 63.3vh; */
+  /* z-index: 1; */
   /* margin: -6.1vw; */
-  height: 10px;
+  /* height: 10px; */
+
+  right: initial;
+  top: initial;
+  position: initial;
+  margin: 0;
+
+  position: relative;
+  bottom: -30px;
 }
 .get-start {
-  width: 26vh;
-  height: 26vh;
+  display: flex;
+  justify-content: center;
+
+  width: 24vh;
+  height: 24vh;
   position: relative;
-  left: 3.3vh;
-  top: 2.9vh;
+  /* left: 3.3vh; */
+  /* top: 2.9vh; */
   background: #ffb404;
   font-family: 'Lato';
   font-style: normal;
   font-weight: 800;
   font-size: 32px;
   /* line-height: 6vh; */
-  display: -webkit-box;
+  /* display: -webkit-box;
   display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
+  display: flex; */
+  /* -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  text-align: center;
+  text-align: center; */
   /* letter-spacing: 0.1em; */
   text-transform: uppercase;
   color: #102132;
   border-radius: 50%;
+  left: initial;
+  top: initial;
 }
 
-.banner-image img {
-  height: 65vh;
-}
+
 </style>

@@ -21,7 +21,7 @@
                 <img :src="require('@/assets/media/timer.png')"
               /></v-btn>
             </div>
-            <div class="media-content mt-2 ml-1">
+            <div class="media-content mt-2 ml-1 mr-3">
               <p class="mb-1">COMPLETION TIME</p>
 
               <span>2 minutes</span>
@@ -52,7 +52,7 @@
           </div>
         </div>
       </div>
-      <div class="right-side mobile-right-side back-office-page">
+      <div class="right-side mobile-right-side back-office-page banner-with-person">
         <div class="banner-button-start">
           <div class="gradient-one">
             <div class="gradient-two">

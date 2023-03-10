@@ -69,7 +69,7 @@
 </template>
 <script>
 import AppFooterVue from '../../components/audien/footer.vue';
-import headephone from './headephone.vue';
+import headephone from './headephone2.vue';
 import headerVue from '../../components/audien/header.vue';
 export default {
   components: {

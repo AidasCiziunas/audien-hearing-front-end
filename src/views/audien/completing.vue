@@ -129,7 +129,7 @@
           /></v-btn>
         </div>
       </div>
-      <div class="back-office-page mobile-right right-side">
+      <div class="back-office-page mobile-right right-side banner-with-person">
         <div class="banner-image">
           <img :src="require('@/assets/media/complete-women.png').default" />
         </div>
@@ -139,13 +139,13 @@
   </div>
 </template>
 <script>
-import PhoneNumSelect from '../../components/common/widgets/PhoneNumSelect.vue';
+// import PhoneNumSelect from '../../components/common/widgets/PhoneNumSelect.vue';
 import footerVue from '@/components/audien/footer.vue';
 import headerVue from '@/components/audien/header.vue';
 import VueTelInputVuetify from 'vue-tel-input-vuetify/lib/vue-tel-input-vuetify.vue';
 export default {
   components: {
-    PhoneNumSelect,
+    // PhoneNumSelect,
     footerVue,
     VueTelInputVuetify,
     headerVue,

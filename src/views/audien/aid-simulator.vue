@@ -2,7 +2,7 @@
   <div>
     <headerVue />
     <div class="flex-align flex-mobile-align">
-       <div class="left-side mobile-left mobile-left-side">
+      <div class="left-side mobile-left mobile-left-side">
         <div class="audien-title">
           <span class="mb-5 steps">STEP 20 of 20</span>
           <h1>Hearing aid simulator</h1>
@@ -12,9 +12,7 @@
             <label class="radio">
               <input v-model="ear" value="off" type="radio" name="group1" />
               <span>
-                <div
-                  :class="ear == 'off' ? 'yellow-circle-tick' : 'circle'"
-                ></div>
+                <div :class="ear == 'off' ? 'yellow-circle-tick' : 'circle'"></div>
                 <img :src="require('@/assets/media/ear-off.png')" />
                 <p>Hearing aid Off</p>
               </span>
@@ -22,16 +20,14 @@
             <label class="radio">
               <input type="radio" name="group1" v-model="ear" value="on" />
               <span>
-                <div
-                  :class="ear == 'on' ? 'yellow-circle-tick' : 'circle'"
-                ></div>
+                <div :class="ear == 'on' ? 'yellow-circle-tick' : 'circle'"></div>
                 <img :src="require('@/assets/media/ear.png')" />
                 <p>Hearing aid On</p>
               </span>
             </label>
           </div>
         </div>
-        <div class="align-step-button mt-16" style="margin-top:20vh !important">
+        <div class="align-step-button mt-16" style="margin-top: 20vh !important">
           <v-btn
             class="warning-button-outline mr-5 mt-2"
             @click="$router.push('/disclaimer')"
@@ -48,7 +44,7 @@
           /></v-btn>
         </div>
       </div>
-     <div class="back-office-page mobile-right right-side">
+      <div class="back-office-page mobile-right right-side">
         <headephone />
       </div>
     </div>
@@ -56,9 +52,9 @@
   </div>
 </template>
 <script>
-import footerVue from '../../components/audien/footer.vue';
-import headerVue from '../../components/audien/header.vue';
-import headephone from './headephone.vue';
+import footerVue from "../../components/audien/footer.vue";
+import headerVue from "../../components/audien/header.vue";
+import headephone from "./headephone2.vue";
 export default {
   components: {
     headephone,
@@ -67,7 +63,7 @@ export default {
   },
   data() {
     return {
-      ear: 'off',
+      ear: "off",
     };
   },
 };
@@ -88,9 +84,9 @@ export default {
     -webkit-transition: all 0.25s linear;
     transition: all 0.25s linear;
     text-align: center;
-}
-.ex1 span p {
-    font-family: 'Lato';
+  }
+  .ex1 span p {
+    font-family: "Lato";
     font-style: normal;
     font-weight: 700;
     font-size: 1vw;
@@ -103,7 +99,7 @@ export default {
     /* align-items: center; */
     /* text-align: center; */
     color: #ffffff;
-}
+  }
 }
 .radio-content {
   display: -ms-flexbox;
@@ -118,13 +114,14 @@ export default {
   margin-right: auto;
 }
 .ex1 span {
+  padding-bottom: 20px;
   display: block;
   /* padding: 24px 4px 3px 11px; */
   border: 2px solid #142435;
   background: #1f2f40;
   border-radius: 5px;
   width: 11vw;
-  height: 8.2vw;
+  /* height: 8.2vw; */
   padding-top: 27px;
   position: relative;
   border-radius: 10px;
@@ -170,7 +167,7 @@ export default {
   text-align: center;
 }
 .ex1 span p {
-  font-family: 'Lato';
+  font-family: "Lato";
   font-style: normal;
   font-weight: 700;
   font-size: 1vw;
@@ -184,7 +181,7 @@ export default {
   color: #ffffff;
 }
 .button-label {
-  font-family: 'Lato';
+  font-family: "Lato";
   font-style: normal;
   font-weight: 700;
   font-size: 20px;

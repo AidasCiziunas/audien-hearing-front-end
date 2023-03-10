@@ -33,9 +33,9 @@
                 </template>
               </v-text-field> -->
               <div class="input-container mt-10">
-                <i class="icon right" v-on="on">
+                <i class="icon right calendar-icon" v-on="on">
                   <img
-                    class="mt-3"
+
                     :src="require('@/assets/media/date-calendar.png')"
                   />
                 </i>
@@ -47,9 +47,9 @@
                   name="usrnm"
                   v-on="on"
                 />
-                <i class="icon left" v-on="on">
+                <i class="icon left arrow-down-icon" v-on="on">
                   <img
-                    class="mt-5"
+
                     :src="require('@/assets/media/arrow-down.png')"
                   />
                 </i>
@@ -136,11 +136,12 @@ export default {
   display: flex;
   width: 100%;
   margin-bottom: 15px;
+  height: 70px;
 }
 .right {
   border-top-left-radius: 10px !important;
   border-bottom-left-radius: 10px !important;
-  height: 7vh;
+  /* height: 7vh; */
 }
 .icon {
  
@@ -166,7 +167,7 @@ export default {
 .input-field {
   width: 100%;
   padding: 0px;
-  height: 7vh;
+  /* height: 7vh; */
   color: #fff;
   max-width: 20vw;
   outline: none;
@@ -192,5 +193,19 @@ input:focus {
   min-width: 30vw;
   margin-left: 10.6vw;
   margin-right: auto;
+}
+.calendar-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.calendar-icon img {
+  width: 24px;
+  height: 24px;
+}
+.arrow-down-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>

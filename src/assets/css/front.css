@@ -68,7 +68,7 @@
 
     .calendar {
         position: fixed;
-        right: 17vw !important;
+        right: 18vw !important;
         top: 16vw !important;
     }
 
@@ -167,10 +167,12 @@
     }
 
     .banner-image {
-        position: absolute !important;
-        bottom: 0px !important;
-        left: 0vw !important;
-        width: 100vw !important;
+        position: relative !important;
+        left: auto !important;
+        bottom: 4vh !important;
+        /* bottom: 0px !important;
+        left: 0vw !important; */
+        /* width: 100vw !important; */
     }
 
     .mobile-right img {
@@ -221,6 +223,8 @@
     .calendar img {
         width: 80vw !important;
 
+        -webkit-mask-image: -webkit-gradient(linear, left top, 
+        left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
     }
 
     .align-content-space-between .warning-button {
@@ -347,7 +351,7 @@
         background: #1f2f40;
         border-radius: 5px;
         width: 25vw !important;
-        height: 14vh !important;
+        /* height: 14vh !important; */
         padding-top: 27px !important;
         position: relative;
         border-radius: 10px;
@@ -406,9 +410,7 @@
         height: 0px;
     }
 
-    .headphone.banner-image img {
-        height: 40vh !important;
-    }
+
 
 
 }
@@ -547,6 +549,7 @@
 .logo-align {
     width: 63%;
     margin: 30px auto;
+    position: relative;
 }
 
 theme--light.v-divider {
@@ -617,6 +620,7 @@ theme--light.v-divider {
 
 .warning-button-outline {
     height: 60px !important;
+    border-radius: 10px;
 }
 
 .warning-button {
@@ -642,16 +646,14 @@ theme--light.v-divider {
 }
 
 .banner-image {
-    position: fixed;
-    bottom: 9.3vh;
-    left: 53vw;
-
+    /* position: fixed; */
+    /* bottom: 9.3vh; */
+    /* left: 53vw; */
 }
 
-
-
-.banner-image img {
-    height: 75vh;
+.banner-image > img {
+    height: 80vh;
+    display: block;
 }
 
 .social-icon {
@@ -917,7 +919,7 @@ theme--light.v-divider {
     background: #1F2F40;
     border-radius: 5px;
     width: 9vw;
-    height: 100px;
+    /* height: 100px; */
     padding-top: 27px;
     position: relative;
     border-radius: 10px;
@@ -1268,12 +1270,12 @@ theme--light.v-divider {
     }
 
     .banner-image {
-        position: absolute;
+        position: static !important;
         right: 5%;
         bottom: 14vh;
     }
 
-    .banner-image img {
+    .banner-image > img {
         height: 77.1vh;
     }
 
@@ -1376,11 +1378,23 @@ theme--light.v-divider {
 
 /* mobile screen */
 .left-side {
-    width: 55vw
+    width: 55vw;
+    padding-bottom: 160px;
+    padding-top: 50px;
 }
 
 .right-side {
     width: 45vw;
+}
+
+.banner-with-person {
+  display: flex;
+  align-items: flex-end
+}
+
+.banner-with-person > .banner-image {
+  left: -2vw;
+  position: relative;
 }
 
 .mobile-banner-button {
@@ -1474,6 +1488,10 @@ theme--light.v-divider {
         min-height: 50vh;
         height: auto;
         width: 100vw;
+
+        display: flex;
+        justify-content: center;
+        
     }
 
     .mobile-right button {
