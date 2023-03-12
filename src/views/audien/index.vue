@@ -81,15 +81,18 @@ export default {
 };
 </script>
 <style scoped>
-.start-btn-sm {
-  display: none;
+@media only screen and (min-width: 801px) {
+  .start-btn-sm {
+    display: none;
+  }
 }
 @media only screen and (min-width: 300px) and (max-width: 400px) {
   .button-start {
-    position: absolute;
+    /* position: absolute;
     left: -3% !important;
     right: 20% !important;
-    top: 55vh;
+    top: 55vh; */
+    display: inline-block;
   }
   .border-bottom {
     display: none;
@@ -99,16 +102,16 @@ export default {
     width: 20vh !important;
     height: 20vh !important;
     position: relative;
-    left: 2.3vh !important;
-    top: 2.9vh !important;
+    /* left: 2.3vh !important;
+    top: 2.9vh !important; */
     background: #ffb404;
     font-family: 'Lato';
     font-style: normal;
     font-weight: 800;
     font-size: 3vh;
     /* line-height: 6vh; */
-    padding-left: 2vh;
-    padding-right: 2vh;
+    /* padding-left: 2vh; */
+    /* padding-right: 2vh; */
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -120,18 +123,20 @@ export default {
     text-transform: uppercase;
     color: #102132;
     border-radius: 50%;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
   }
   .gradient-two {
     position: relative;
-    top: 0px;
+    /* top: 0px; */
     border-radius: 50%;
     z-index: 1;
     /* margin: -5.1vw; */
     width: 25vh !important;
     height: 25vh !important;
     /* bottom: 24px !important; */
-    top: 2vh !important;
-    left: 5.5vw !important;
+    /* top: 2vh !important; */
+    /* left: 5.5vw !important; */
     background: -webkit-gradient(
       linear,
       right top,
@@ -147,15 +152,15 @@ export default {
   }
   .gradient-one {
     position: relative;
-    top: 0px;
+    /* top: 0px; */
     border-radius: 50%;
     z-index: 1;
     /* margin: -5.1vw; */
     width: 30vh ;
     height: 30vh ;
     /* bottom: 24px; */
-    top: 5vh ;
-    left: 15vw ;
+    /* top: 5vh ; */
+    /* left: 15vw ; */
     background: -webkit-gradient(
       linear,
       right top,
@@ -170,7 +175,9 @@ export default {
     );
   }
   .start-btn-sm {
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .left-side {
     min-height: 100vh;
@@ -191,8 +198,8 @@ export default {
 @media only screen and (min-width: 401px) and (max-width: 800px) {
   
   .button-start{
-    position: absolute;
-    left: 7% !important;
+    /* position: absolute;
+    left: 7% !important; */
     /* right: 3%; */
   }
   .left-side {
@@ -203,7 +210,9 @@ export default {
     display: none !important;
   }
   .start-btn-sm {
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .audien-title p {
     font-family: 'Lato';
@@ -218,15 +227,15 @@ export default {
   }
   .gradient-two {
     position: relative;
-    top: 0px;
+    /* top: 0px; */
     border-radius: 50%;
     z-index: 1;
     /* margin: -5.1vw; */
     width: 28vh !important;
     height: 28vh !important;
     /* bottom: 24px !important; */
-    top: 3vh !important;
-    left: 5vw !important;
+    /* top: 3vh !important; */
+    /* left: 5vw !important; */
     background: -webkit-gradient(
       linear,
       right top,
@@ -238,15 +247,15 @@ export default {
   }
   .gradient-one {
     position: relative;
-    top: 0px;
+    /* top: 0px; */
     border-radius: 50%;
     z-index: 1;
     /* margin: -5.1vw; */
     width: 33vh !important;
     height: 33vh !important;
     /* bottom: 24px; */
-    top: 5vh !important;
-    left: 13vw !important;
+    /* top: 5vh !important; */
+    /* left: 13vw !important; */
     background: -webkit-gradient(
       linear,
       right top,
@@ -260,16 +269,16 @@ export default {
     width: 22vh !important;
     height: 22vh !important;
     position: relative;
-    left: 3.3vh !important;
-    top: 2.9vh !important;
+    /* left: 3.3vh !important; */
+    /* top: 2.9vh !important; */
     background: #ffb404;
     font-family: 'Lato';
     font-style: normal;
     font-weight: 800;
     font-size: 3vh;
     /* line-height: 6vh; */
-    padding-left: 2vh;
-    padding-right: 2vh;
+    /* padding-left: 2vh; */
+    /* padding-right: 2vh; */
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -284,25 +293,26 @@ export default {
   }
 }
 .button-start {
-  position: absolute;
+  /* position: absolute;
   left: 20%;
-  right: 20%;
+  right: 20%; */
 }
 
 .get-start {
   width: 26vh;
   height: 26vh;
   position: relative;
-  left: 3.3vh;
-  top: 2.9vh;
+  /* left: 3.3vh; */
+  /* top: 2.9vh; */
   background: #ffb404;
   font-family: 'Lato';
   font-style: normal;
   font-weight: 800;
   font-size: 3vh;
   /* line-height: 6vh; */
-  padding-left: 2vh;
-  padding-right: 2vh;
+  /* padding-left: 2vh; */
+  /* padding-right: 2vh; */
+  padding: inherit;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -316,16 +326,21 @@ export default {
   border-radius: 50%;
 }
 .gradient-two {
+  display: flex;  
+  align-items: center;
+  justify-content: center;
+
   position: relative;
   top: 0px;
   border-radius: 50%;
   z-index: 1;
   /* margin: -5.1vw; */
-  width: 32vh;
-  height: 32vh;
+  /* width: 32vh; */
+  /* height: 32vh; */
   /* bottom: 24px !important; */
-  top: 3vh;
-  left: 1.5vw;
+  /* top: 3vh; */
+  /* left: 1.5vw; */
+  padding: 2rem;
   background: -webkit-gradient(
     linear,
     right top,
@@ -336,16 +351,21 @@ export default {
   background: linear-gradient(270deg, #ffffff12 26%, rgb(255 180 4 / 2%) 151%);
 }
 .gradient-one {
+  display: flex;  
+  align-items: center;
+  justify-content: center;
+
   position: relative;
   top: 0px;
   border-radius: 50%;
   z-index: 1;
   /* margin: -5.1vw; */
-  width: 38vh;
-  height: 38vh;
+  /* width: 38vh; */
+  /* height: 38vh; */
   /* bottom: 24px; */
-  top: 5vh;
-  left: 6vw;
+  /* top: 5vh; */
+  /* left: 6vw; */
+  padding: 2rem;
   background: -webkit-gradient(
     linear,
     right top,
@@ -356,10 +376,10 @@ export default {
   background: linear-gradient(270deg, #ffffff14 26%, rgb(255 180 4 / 0%) 151%);
 }
 .banner-button-start {
-  position: absolute;
-  top: 22vh;
-  left: 71vh;
-  z-index: 1;
+  left: -10vw;
+  position: absolute; 
+  top: 16vw;
+  left: -14vw;
 }
 .footer {
   height: 100px;

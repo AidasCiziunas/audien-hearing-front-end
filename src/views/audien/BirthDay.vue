@@ -85,7 +85,7 @@
             </div>
           </div>
         </div>
-        <div class="align-content-space-between mt-10">
+        <div class="align-step-button mt-10">
           <v-btn
             class="warning-button mt-lg-15"
             @click="$router.push('/best-result')"
@@ -183,7 +183,7 @@ input:focus {
 }
 
 .align-content-space-between {
-  display: -webkit-box;
+  /* display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
@@ -192,7 +192,7 @@ input:focus {
   width: 26vw;
   min-width: 30vw;
   margin-left: 10.6vw;
-  margin-right: auto;
+  margin-right: auto; */
 }
 .calendar-icon {
   display: flex;
@@ -207,5 +207,13 @@ input:focus {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+@media screen and (max-width: 800px) {
+  .mobile-right {
+    min-height: 46vh;
+  }
+  .align-step-button .warning-button {
+    bottom: 22vh;
+  }
 }
 </style>

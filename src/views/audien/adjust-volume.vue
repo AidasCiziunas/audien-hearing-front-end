@@ -45,7 +45,7 @@
             </div>
           </div>
         </div>
-        <div class="align-step-button w-10 mt-16">
+        <div class="align-step-button mt-16">
           <v-btn
             class="warning-button-outline mr-5"
             @click="$router.push('/ear-select')"

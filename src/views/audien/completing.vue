@@ -162,7 +162,7 @@ export default {
 <style scoped>
 @media only screen and (min-width: 301px) and (max-width: 800px) {
   .left-side {
-    height: 100vh;
+    /* height: 100vh; */
   }
   .right-side {
     display: none;
@@ -409,13 +409,19 @@ export default {
   margin-right: auto;
 }
 .align-step-button {
-  width: 20vw;
+  /* width: 20vw;
   min-width: 24vw;
   margin-left: 9.6vw;
   margin-right: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  gap: 1vh;
+  gap: 1vh; */
 }
+@media only screen and (min-width: 301px) and (max-width: 800px) {
+  .personal-info {
+    margin-bottom: 20px;
+  }
+}
+
 </style>

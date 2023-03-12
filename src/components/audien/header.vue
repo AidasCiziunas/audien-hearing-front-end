@@ -1,7 +1,7 @@
 <template>
   <div class="flex-align header">
     <div class="left-header mobile-left-side">
-      <div class="logo-align" style="height: 10vh !important">
+      <div class="logo-align">
         <router-link to="/">
           <img :src="require('@/assets/media/Logo.png')" alt="logo"
         /></router-link>
@@ -9,7 +9,7 @@
     </div>
     <div
       class="right-header mobile-right-side back-office-page"
-      style="height: 10vh !important"
+      :class="{ 'finish-page': isFinish }"
     >
       <div class="logo-align mt-10">
         <v-btn class="warning-button">
@@ -20,12 +20,9 @@
     </div>
     <div class="moobile-header" style="display: none">
       <div class="mobile-flex">
-        <div style="height: 10vh !important">
+        <div>
           <router-link to="/">
-            <img
-              class="logo"
-              :src="require('@/assets/media/Logo.png')"
-              alt="logo"
+            <img class="logo" :src="require('@/assets/media/Logo.png')" alt="logo"
           /></router-link>
         </div>
 
@@ -43,10 +40,21 @@
     </div>
   </div>
 </template>
+<script>
+export default {
+  computed: {
+    isFinish() {
+      // console.log(this.$route.path)
+      return /(finish)$/.test(this.$route.path)
+      // return this.$route.matched.some(({ path }) => /(finish)$/.test(path));
+    },
+  },
+};
+</script>
 <style scoped>
 .header {
-  height: auto;
-  max-height: 10vh;
+  /* height: auto;
+  max-height: 10vh; */
 }
 @media only screen and (min-width: 300px) and (max-width: 800px) {
   .logo {
@@ -76,7 +84,7 @@
   }
 }
 .warning-button-outline >>> .v-btn__content {
-  font-family: 'Lato';
+  font-family: "Lato";
   font-style: normal;
   font-weight: 800 !important;
   font-size: 1.7vh !important;
@@ -85,5 +93,8 @@
   color: #fff !important;
   border-radius: 10px !important;
   height: 10px !important;
+}
+.right-header.finish-page {
+  background: #102132;
 }
 </style>

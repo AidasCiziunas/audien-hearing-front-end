@@ -40,12 +40,12 @@
           <div class="volume mt-10">
             <v-slider
               track-color="linear-gradient(
-    90deg,
-    #ff3b16 0%,
-    #ffe600 50%,
-    #4cbc25 100%
-  )"
-              color="#fb8c00"
+                90deg,
+                #ff3b16 0%,
+                #ffe600 50%,
+                #4cbc25 100%
+              )"
+              color="css(0,0,0,0)"
               prepend-icon="mdi-volume-low"
               append-icon="mdi-volume-high"
               ticks="always"
@@ -59,6 +59,22 @@
             </v-slider>
           </div>
         </div>
+        <!-- <div class="d-flex justify-space-between" style="margin-left: 10.6vw; margin-right: auto; width: 30vw;">
+          <v-btn
+            style="width: 48%"
+            class="warning-button-outline mt-5"
+            @click="$router.push('/instruction')"
+            color="#ffb404"
+            outlined
+          >-</v-btn>
+          <v-btn
+            style="width: 48%"
+            class="warning-button-outline mt-5"
+            @click="$router.push('/instruction')"
+            color="#ffb404"
+            outlined
+          >+</v-btn>
+        </div> -->
         <div class="align-step-button mt-16">
           <v-btn
             class="warning-button-outline mr-2 mt-5"
@@ -106,6 +122,7 @@ export default {
   border-radius: 2px;
   height: 32px;
   width: 10px;
+  z-index: 1;
 }
 .v-slider__thumb::after {
   display: none;
@@ -229,12 +246,12 @@ export default {
 }
 
 .align-step-button {
-  width: 26vw;
+  /* width: 26vw;
   min-width: 26vw;
   margin-left: 10.6vw;
   margin-right: auto;
   display: flex;
-  gap: 1vw;
+  gap: 1vw; */
 }
 .theme--light.v-icon {
   color: #fff;
@@ -252,6 +269,8 @@ export default {
     #ffe600 50%,
     #4cbc25 100%
   ) !important;
+  border-radius: 5px;
+  z-index: 1;
 }
 
 .flex-align {

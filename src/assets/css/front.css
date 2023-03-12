@@ -1,10 +1,11 @@
+
 @media only screen and (min-width: 801px) and (max-width: 1000px) {
-    .banner-button-start {
+    /* .banner-button-start {
         position: absolute;
         top: 30vh !important;
         left: 32% !important;
         z-index: 1;
-    }
+    } */
 
     .calendar {
         position: fixed;
@@ -19,12 +20,12 @@
 }
 
 @media only screen and (min-width: 1001px) and (max-width: 1200px) {
-    .banner-button-start {
+    /* .banner-button-start {
         position: absolute;
         top: 33vh !important;
         left: 35% !important;
         z-index: 1;
-    }
+    } */
 
     .calendar {
         position: fixed;
@@ -39,12 +40,12 @@
 }
 
 @media only screen and (min-width: 1201px) and (max-width: 1400px) {
-    .banner-button-start {
+    /* .banner-button-start {
         position: absolute;
         top: 33vh !important;
         left: 37% !important;
         z-index: 1;
-    }
+    } */
 
     .calendar {
         position: fixed;
@@ -59,12 +60,12 @@
 }
 
 @media only screen and (min-width: 1401px) and (max-width: 1600px) {
-    .banner-button-start {
+    /* .banner-button-start {
         position: absolute;
         top: 26vh !important;
         left: 35% !important;
         z-index: 1;
-    }
+    } */
 
     .calendar {
         position: fixed;
@@ -79,20 +80,19 @@
 }
 
 @media only screen and (min-width: 1601px) and (max-width: 1800px) {
-    .banner-button-start {
+    /* .banner-button-start {
         position: absolute;
         top: 26vh !important;
         left: 38% !important;
         z-index: 1;
-    }
+    } */
 }
 
 @media only screen and (min-width: 300px) and (max-width: 400px) {
     .start-btn-sm {
         background: #102132 url('../media/mask-group.png')no-repeat center center / cover;
-
         height: 38vh;
-        width: 150vw;
+        /* width: 150vw; */
 
     }
 }
@@ -102,9 +102,24 @@
         background: #102132 url('../media/mask-group.png')no-repeat center center / cover;
 
         height: 43vh;
-        width: 150vw;
+        /* width: 150vw; */
 
     }
+}
+
+@media only screen and (min-width: 801px) {
+  .warning-button-outline {
+    height: 60px !important;
+  }
+
+  .align-step-button {
+    width: 26vw;
+    min-width: 26vw;
+    margin-left: 10.6vw !important;
+    margin-right: auto;
+    display: flex;
+    gap: 1vw;
+  }
 }
 
 .small-screen {
@@ -157,6 +172,18 @@
         width: 80vw !important;
     }
 
+    .warning-button-outline {
+      min-height: 34px;
+      height: 8vw !important;
+    }
+
+    .align-step-button,
+    .align-content-space-between {
+      display: flex;
+      justify-content: center;
+      margin: 0;
+    }
+
     .align-step-button .warning-button-outline {
         display: none;
     }
@@ -167,18 +194,18 @@
     }
 
     .banner-image {
-        position: relative !important;
-        left: auto !important;
-        bottom: 4vh !important;
+        /* position: relative !important; */
+        /* left: auto !important; */
+        /* bottom: 4vh !important; */
         /* bottom: 0px !important;
         left: 0vw !important; */
         /* width: 100vw !important; */
     }
 
     .mobile-right img {
-        width: 100% !important;
+        /* width: 100% !important;
         margin: auto;
-        height: 50vh !important;
+        height: 50vh !important; */
     }
 
     .audien-title {
@@ -214,11 +241,11 @@
         max-width: 60vw;
     }
 
-    .calendar {
+    /* .calendar {
         position: absolute !important;
         left: 15vw;
         top: 66vh !important;
-    }
+    } */
 
     .calendar img {
         width: 80vw !important;
@@ -306,9 +333,10 @@
     .align-content-space-between .warning-button,
     .align-content-space-between-3 .warning-button {
         position: absolute;
-        top: 97vh;
+        /* top: 97vh; */
         z-index: 99;
         width: 79vw !important;
+        max-width: 345px;
         bottom: 10vh;
     }
 
@@ -401,14 +429,14 @@
         width: 20px !important;
     }
 
-    .headphone {
+    /* .headphone {
 
         position: absolute !important;
         top: 41vh !important;
-        /* bottom: 0px; */
+
         right: 54vh !important;
         height: 0px;
-    }
+    } */
 
 
 
@@ -435,14 +463,7 @@
     color: #FFFFFF;
 }
 
-.align-step-button {
-    width: 26vw;
-    min-width: 26vw;
-    margin-left: 10.6vw !important;
-    margin-right: auto;
-    display: flex;
-    gap: 1vw;
-}
+
 
 .v-application .warning {
     background-color: #ffb404 !important;
@@ -490,6 +511,7 @@
     background: url('../media/right-background.png')no-repeat center center / cover;
     min-height: 80vh;
     height: auto;
+    position: relative;
 }
 
 
@@ -519,7 +541,7 @@
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
-    width: 26vw;
+    width: 30vw;
     min-width: 26vw;
 
     margin-left: 10.6vw;
@@ -550,6 +572,7 @@
     width: 63%;
     margin: 30px auto;
     position: relative;
+    z-index: 2;
 }
 
 theme--light.v-divider {
@@ -601,8 +624,8 @@ theme--light.v-divider {
 .get-start {
     width: 200px;
     height: 200px;
-    left: 956px;
-    top: 458px;
+    /* left: 956px; */
+    /* top: 458px; */
     background: #FFB404;
     font-family: 'Lato';
     font-style: normal;
@@ -619,7 +642,7 @@ theme--light.v-divider {
 }
 
 .warning-button-outline {
-    height: 60px !important;
+    /* height: 60px; */
     border-radius: 10px;
 }
 
@@ -739,9 +762,9 @@ theme--light.v-divider {
 
 /* birth day screen */
 .calendar {
-    position: fixed;
+    /* position: fixed;
     right: 22vw;
-    top: 13vw;
+    top: 13vw; */
 }
 
 .calendar img {
@@ -1194,13 +1217,13 @@ theme--light.v-divider {
     .audien-title {
         width: 61%;
         color: #fff;
-        margin: 0xp auto;
+        /* margin: 0px auto; */
         line-height: 0vh;
     }
 
-    .align-step-button {
+    /* .align-step-button {
         margin-bottom: 20vh;
-    }
+    } */
 
     .align-content-space-content {
         width: 40vw !important;
@@ -1212,7 +1235,7 @@ theme--light.v-divider {
     }
 
     .align-content-space-between .warning-button {
-        margin-bottom: 20vh !important;
+        /* margin-bottom: 20vh !important; */
     }
 
     .align-content-space-between-3 .warning-button {
@@ -1246,21 +1269,21 @@ theme--light.v-divider {
     }
 
     .banner-image {
-        position: static !important;
+        /* position: static !important; */
         right: 5%;
-        bottom: 14vh;
+        /* bottom: 14vh; */
     }
 
     .banner-image > img {
         height: 77.1vh;
     }
 
-    .banner-button-start {
+    /* .banner-button-start {
         position: absolute;
         top: 35vh;
         left: 73vh;
         z-index: 1;
-    }
+    } */
 
     .left-side {
         background: #102132 url('../media/mask-group.png')no-repeat center center / cover;
@@ -1277,8 +1300,8 @@ theme--light.v-divider {
     .get-start {
         width: 126px;
         height: 119px;
-        left: 956px;
-        top: 458px;
+        /* left: 956px; */
+        /* top: 458px; */
         background: #FFB404;
         font-family: 'Lato';
         font-style: normal;
@@ -1356,11 +1379,11 @@ theme--light.v-divider {
 .left-side {
     width: 55vw;
     padding-bottom: 160px;
-    padding-top: 50px;
 }
 
 .right-side {
     width: 45vw;
+    position: relative;
 }
 
 .banner-with-person {
@@ -1467,7 +1490,7 @@ theme--light.v-divider {
 
         display: flex;
         justify-content: center;
-        
+        position: relative;
     }
 
     .mobile-right button {
@@ -1475,12 +1498,25 @@ theme--light.v-divider {
     }
 
     .mobile-right .calendar {
-        position: fixed;
+      position: relative;
+      top: -15vw;
+      margin-left: 20px;
+    }
+
+    .mobile-right .calendar img {
+      max-width: 500px;
+      width: 100%;
+      height: inherit;
     }
 
     .mobile-right img {
         width: 80%;
         margin: auto;
+        height: inherit;
+        max-width: 400px;
     }
-
+    .banner-with-person {
+      background-position-y: 70px;
+      background-color: #102132;
+    }
 }

@@ -464,4 +464,12 @@ export default {
   position: absolute;
   z-index: 1;
 }
+@media only screen and (min-width: 301px) and (max-width: 800px) {
+  .align-content-space-between-3 {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    width: inherit;
+  }
+}
 </style>
