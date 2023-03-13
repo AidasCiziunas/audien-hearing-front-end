@@ -62,16 +62,19 @@ export default {
   display: flex;
   flex-direction: row;
 }
-.audien-title p {
-  font-family: 'Lato';
-  font-style: normal;
-  font-weight: 300;
-  font-size: 2.7vh;
-  max-width: 31vw;
-  width: 30vw;
-  line-height: 4vh;
-  color: #ffffff;
+@media only screen and (min-width: 801px) {
+  .audien-title p {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 2.7vh;
+    max-width: 31vw;
+    width: 30vw;
+    line-height: 4vh;
+    color: #ffffff;
+  }
 }
+
 .align-content-space-between {
   display: -webkit-box;
   display: -ms-flexbox;

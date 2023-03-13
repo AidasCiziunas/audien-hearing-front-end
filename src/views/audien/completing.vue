@@ -121,8 +121,7 @@
           /></v-btn>
 
           <v-btn
-            style="width: 33vh"
-            class="warning-button mt-5"
+            class="warning-button"
             @click="$router.push('/result')"
             >Next step
             <img class="ml-2" :src="require('@/assets/media/arrow-right.png')"
@@ -163,6 +162,7 @@ export default {
 @media only screen and (min-width: 301px) and (max-width: 800px) {
   .left-side {
     /* height: 100vh; */
+    /* padding-bottom: 160px; */
   }
   .right-side {
     display: none;
@@ -377,16 +377,7 @@ export default {
   line-height: 3vw;
   color: #ffffff;
 }
-.audien-title p {
-  font-family: 'Lato';
-  font-style: normal;
-  font-weight: 300;
-  font-size: 20px;
-  min-width: 29vw;
-  width: 27vw;
-  line-height: 4vh;
-  color: #ffffff;
-}
+
 .input-append-icon {
   position: relative;
   bottom: -2px;
@@ -408,20 +399,28 @@ export default {
   margin-left: 9.6vw;
   margin-right: auto;
 }
-.align-step-button {
-  /* width: 20vw;
-  min-width: 24vw;
-  margin-left: 9.6vw;
-  margin-right: auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  gap: 1vh; */
+
+@media only screen and (min-width: 801px) {
+  .audien-title p {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    min-width: 29vw;
+    width: 27vw;
+    line-height: 4vh;
+    color: #ffffff;
+  }
 }
 @media only screen and (min-width: 301px) and (max-width: 800px) {
-  .personal-info {
-    margin-bottom: 20px;
+  .align-step-button button.warning-button {
+    position: relative;
+    bottom: inherit;
+
   }
+  /* .personal-info {
+    margin-bottom: 20px;
+  } */
 }
 
 </style>

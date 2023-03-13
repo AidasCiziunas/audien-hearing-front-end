@@ -212,8 +212,8 @@ input:focus {
   .mobile-right {
     min-height: 46vh;
   }
-  .align-step-button .warning-button {
+  /* .align-step-button .warning-button {
     bottom: 22vh;
-  }
+  } */
 }
 </style>

@@ -75,14 +75,17 @@ export default {
   margin-left: 11vw;
   margin-right: auto;
 }
-.audien-title p {
-  font-family: 'Lato';
-  font-style: normal;
-  font-weight: 300;
-  font-size: 20px;
-  min-width: 24vw;
-  width: 19vw;
-  line-height: 4vh;
-  color: #ffffff;
+@media only screen and (min-width: 801px) {
+  .audien-title p {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    min-width: 24vw;
+    width: 19vw;
+    line-height: 4vh;
+    color: #ffffff;
+  }
 }
+
 </style>

@@ -20,20 +20,33 @@
               track-color="#102132"
             >
             </v-slider>
-
             <b style="color: #fff" class="mt-1"> {{ slider1 }}</b>
           </div>
+          <a class="volume-info-link" @click="toggleTooltip">What is a comfortable listening level?</a>
         </div>
-        <div class="align-content-space-between mt-16">
+        <div 
+          class="align-content-space-between mt-16 mobile-popup"
+          :style="{ display: isTooltipVisible ? 'block' : 'none' }"
+        >
           <div class="media">
-            <div class="mt-1">
-              <v-btn color="#1F2F40;" class="mr-2" height="60">
+            <div class="media__icon mt-1 mr-2">
+              <v-btn color="#1F2F40;" height="60">
                 <img :src="require('@/assets/media/help-circle.png')"
               /></v-btn>
               <!-- <img :src="require('@/assets/media/timer.png')" /> -->
             </div>
             <div class="media-content">
-              <p class="mb-2">Why ask my birth year?</p>
+              <div>
+                <v-btn
+                  class="media-content__close"
+                  @click="$router.push('/hearing-test')"
+                  color="#ffffff"
+                >
+                  <img :src="require('@/assets/media/arrow-right-1.png')"
+                /></v-btn>
+                
+              </div>
+              <p class="mb-2 mx-16">What is a comfortable listening level?</p>
 
               <span
                 >A comfortable listening level differs from one individual to
@@ -81,8 +94,14 @@ export default {
   data() {
     return {
       slider1: 0,
+      isTooltipVisible: true
     };
   },
+  methods: {
+    toggleTooltip() {
+      this.isTooltipVisible = !this.isTooltipVisible
+    }
+  }
 };
 </script>
 <style scoped>
@@ -182,4 +201,74 @@ export default {
   margin: 9vh auto;
   height: auto;
 } */
+.media-content__close {
+  display: none;
+}
+.volume-info-link {
+  display: none;
+}
+@media only screen and (max-width: 800px) {
+  .mobile-popup {
+    /* display: none; */
+
+    position: fixed;
+    /* bottom: 0; */
+    z-index: 100;
+    max-width: 100vw;
+    bottom: 0;
+    width: 100vw !important;
+    height: 40vh;
+    margin: 0 !important;
+    background: #102132;
+    border-radius: 30px 30px 0px 0px;
+    padding-top: 40px;
+  }
+  .mobile-popup:before {
+    content: " ";
+    position: absolute;
+    width: 60px;
+    height: 4px;
+
+    background: #1C2E40;
+    border-radius: 4px;
+
+    top: 18px;
+    left: calc(50% - 30px);
+  }
+  .media {
+    margin: 0 20px;
+  }
+  .media__icon {
+    display: none;
+  }
+  .media-content p {
+    font-size: 24px;
+    line-height: 32px;
+    margin: 0 20px;
+    text-align: center;
+  }
+  .media-content p:before {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+
+  }
+  .align-content-space-between {
+    flex-direction: column;
+  }
+  .volume-info-link {
+    display: inline-block;
+    color: #FFB404;
+    margin: 10px 0;
+    /* border-bottom: 1px solid #FFB404; */
+
+
+    font-family: 'Lato';
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 20px;
+    text-align: center;
+  }
+}
 </style>

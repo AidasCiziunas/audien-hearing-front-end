@@ -209,10 +209,13 @@
     }
 
     .audien-title {
-        width: 82% !important;
+        /* width: % !important; */
         color: #fff;
         height: auto;
         text-align: center;
+
+        margin-right: 20px;
+        margin-left: 20px;
     }
 
     .audien-title h1 {
@@ -250,7 +253,7 @@
     .calendar img {
         width: 80vw !important;
 
-        -webkit-mask-image: -webkit-gradient(linear, left top, 
+        -webkit-mask-image: -webkit-gradient(linear, left 10%, 
         left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
     }
 
@@ -268,10 +271,11 @@
         font-style: normal;
         font-weight: 300;
         font-size: 2.7vh;
-        max-width: 80vw !important;
-        width: 98vw !important;
+        /* max-width: 80vw !important; */
+        /* width: 98vw !important; */
+        width: initial;
 
-        line-height: 4vh !important;
+        /* line-height: 4vh !important; */
         color: #ffffff;
     }
 
@@ -1378,7 +1382,7 @@ theme--light.v-divider {
 /* mobile screen */
 .left-side {
     width: 55vw;
-    padding-bottom: 160px;
+    padding-bottom: 60px;
 }
 
 .right-side {
@@ -1402,10 +1406,14 @@ theme--light.v-divider {
 
 @media screen and (max-width: 800px) {
     .audien-title {
-        width: 82%;
+        width: initial;
         color: #fff;
 
         height: auto;
+  
+        margin-right: 20px;
+        margin-left: 20px;
+
     }
 
     .audien-title h1 {
@@ -1419,24 +1427,29 @@ theme--light.v-divider {
     }
 
     .audien-title h1 span {
-        font-family: 'Lato';
+        /* font-family: 'Lato';
         font-style: normal;
         font-weight: 800;
         font-size: 10.2vw;
-        line-height: 3.2vh;
+        line-height: 3.2vh; */
+        font-size: 48px !important;
+        line-height: 56px !important;
         color: #FFB404;
     }
+
+
 
     .audien-title p {
         font-family: 'Lato';
         font-style: normal;
         font-weight: 300;
-        font-size: 3.5vw;
-
+        /* font-size: 3.5vw; */
+        font-size: 1.7rem;
+        line-height: 2.5rem;
         text-align: center;
 
-        /* line-height: 4vh; */
         color: #FFFFFF;
+        width: initial;
     }
 
     .footer {
@@ -1499,7 +1512,7 @@ theme--light.v-divider {
 
     .mobile-right .calendar {
       position: relative;
-      top: -15vw;
+      top: -5vw;
       margin-left: 20px;
     }
 
@@ -1518,5 +1531,11 @@ theme--light.v-divider {
     .banner-with-person {
       background-position-y: 70px;
       background-color: #102132;
+    }
+
+    .audien-title h1 {
+      font-size: 48px !important;
+      line-height: 56px !important;
+      margin-bottom: 20px;
     }
 }

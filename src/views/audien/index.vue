@@ -194,6 +194,11 @@ export default {
     margin-left: auto;
     margin-right: auto;
   }
+  .audien-title h1 {
+    font-size: 48px !important;
+    line-height: 56px !important;
+    margin-bottom: 20px;
+  }
 }
 @media only screen and (min-width: 401px) and (max-width: 800px) {
   
@@ -218,12 +223,14 @@ export default {
     font-family: 'Lato';
     font-style: normal;
     font-weight: 300;
-    font-size: 20px;
-    min-width: 80vw;
+    /* font-size: 20px; */
+    /* min-width: 80vw; */
     text-align: center;
-    width: 80vw;
+    /* width: 80vw; */
     line-height: 4vh;
     color: #ffffff;
+
+    font-size: 1rem;
   }
   .gradient-two {
     position: relative;

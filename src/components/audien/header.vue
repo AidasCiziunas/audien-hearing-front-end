@@ -44,9 +44,7 @@
 export default {
   computed: {
     isFinish() {
-      // console.log(this.$route.path)
       return /(finish)$/.test(this.$route.path)
-      // return this.$route.matched.some(({ path }) => /(finish)$/.test(path));
     },
   },
 };
