@@ -204,7 +204,11 @@ export default {
   }
 }
 @media only screen and (min-width: 401px) and (max-width: 800px) {
-  
+  .audien-title h1 {
+    font-size: 48px !important;
+    line-height: 56px !important;
+    margin-bottom: 20px;
+  }
   .button-start{
     /* position: absolute;
     left: 7% !important; */
