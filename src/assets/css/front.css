@@ -140,11 +140,11 @@
         display: block;
     }
 
-    .large-screen {
+    /* .large-screen {
         display: none !important;
-    }
+    } */
 
-    .personal-info[data-v-460d24ce] {
+    .personal-info{
 
         display: flex;
         gap: 20px;
@@ -1096,28 +1096,13 @@ theme--light.v-divider {
     max-width: 25vw
 }
 
-.result {
+/* .result {
     display: flex;
     flex-direction: column;
-}
+} */
 
 .border-bottom-row {
     border-bottom: 1px solid rgb(255 255 255 / 28%)
-}
-
-.table-title {
-    min-width: 5vw;
-    margin-bottom: 16px;
-    font-family: 'Lato';
-    font-style: normal;
-    font-weight: 800;
-    font-size: 15px;
-    line-height: 20px;
-    /* or 133% */
-
-    /* #FFFFFF */
-
-    color: #ffffff;
 }
 
 .table-description {

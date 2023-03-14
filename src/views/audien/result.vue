@@ -11,103 +11,71 @@
             You have <span class="difficulty">some difficulty</span> hearing
           </p>
         </div>
+        
         <div class="align-content-space-between small-screen">
-          <div class="volume-2 mt-10">
+          <div class="small-slider-container">
             <v-slider
-              track-color=" linear-gradient(90deg, #4CBC25 0%, #FFE600 50%, #FF3B16 100%)"
-              color="#fb8c00"
               v-model="slider1"
+              color="css(0,0,0,0)"
+              track-color="linear-gradient(
+                90deg,
+                #ff3b16 0%,
+                #ffe600 50%,
+                #4cbc25 100%
+              )"
             >
             </v-slider>
-            <div style="display: flex; gap: 23px">
-              <b
-                style="
-                  border-left: 1px solid rgb(255 255 255 / 24%);
-                  border-right: 1px solid rgb(255 255 255 / 24%);
-                "
-                >Significant Hearing Difficulties</b
-              >
-              <b style="border-right: 1px solid rgb(255 255 255 / 24%)"
-                >Some Difficulty Hearing</b
-              >
-              <b style="border-right: 1px solid rgb(255 255 255 / 24%)"
-                >Your Hearing is OK</b
-              >
+
+            <div class="result-table">
+              <div class="">
+                <div class="hearing-condition__title">Your Hearing is OK</div>
+              </div>
+              <div class="">
+                <div class="hearing-condition__title">Some Difficulty Hearing</div>
+              </div>
+              <div class="">
+                <div class="hearing-condition__title">Significant Hearing Difficulties</div>
+              </div>
             </div>
-            <div style="text-align: center; margin-top: 2vh">
-              <img :src="require('@/assets/media/help.png')" />
+
+            <div class="help-button">
+              <v-btn color="#1F2F40;" class="mr-2" height="60" depressed>
+                <img :src="require('@/assets/media/help-circle.png')" />
+              </v-btn>
             </div>
           </div>
         </div>
         <div class="align-content-space-between-2 large-screen">
           <div class="personal-info result">
-            <div class="hearing-result" style="z-index: 99999">
-              Your hearing
+            <div class="slider-container">
+              <v-slider
+                v-model="slider1"
+                thumb-label="always"
+                track-color="none"
+                color="css(0,0,0,0)"
+                vertical
+              >
+                <template v-slot:thumb-label="hello">
+                  <div class="thumb-label" style="">Your Hearing</div>
+                </template>
+              </v-slider>
             </div>
-            <img
-              class="large-screen side-image"
-              style="position: absolute; height: 100%; max-height: 22vh; display: none;"
-              :src="require('@/assets/media/Rectangle 19.png').default"
-            />
-            <div class="scale-gradient"></div>
-            <v-table class="result-table large-screen" density="compact" border="1">
-              <tbody>
-                <tr>
-                  <td
-                    width="100px"
-                    style="
-                      border-bottom: 1px solid rgb(16 33 50 / 20%);
-                    "
-                  ></td>
-                  <td
-                    style="border-top: 1px solid rgb(255 255 255 / 24%)"
-                    width="120px"
-                    class="border-bottom-row p-2 pl-5 pt-4 pr-6"
-                  >
-                    <div class="table-title">Your Hearing is OK</div>
-                  </td>
-                  <td
-                    style="border-top: 1px solid rgb(255 255 255 / 24%)"
-                    class="p-2 pt-5 pb-5 border-bottom-row"
-                  >
-                    <div class="table-description-1 pl-4">
-                      You can understand conversations whe there is backgroung
-                      noise
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="p-2 border-bottom-row" style="border-bottom: 1px solid rgb(16 33 50 / 20%)"></td>
-                  <td class="border-bottom-row p-2 pl-5 pt-4">
-                    <div class="table-title">Some Difficulty Hearing</div>
-                  </td>
-                  <td class="p-2 pt-5 pb-5  border-bottom-row" style="width: 17vh">
-                    <div class="table-description-2">
-                      You may have difficulty understanding conversations when
-                      there is background noise
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="p-2 border-bottom-row" style="border: none"></td>
-                  <td
-                    class="border-bottom-row p-2 pl-5 pt-4"
-                    style="width: 17vh"
-                  >
-                    <div class="table-title">
-                      Significant Hearing Difficulties
-                    </div>
-                  </td>
-                  <td class="pt-5 pb-5 border-bottom-row">
-                    <div class="table-description-3">
-                      You may have significant difficulties understanding speech
-                      when a person is talking at a normal level either in a
-                      quiet or noisy environment
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </v-table>
+
+            <div class="result-table-2">
+              <div class="hearing-row">
+                <div class="hearing-condition__title">Your Hearing is OK</div>
+                <div class="hearing-condition__description">You can understand conversations whe there is backgroung noise</div>
+              </div>
+              <div class="hearing-row">
+                <div class="hearing-condition__title">Some Difficulty Hearing</div>
+                <div class="hearing-condition__description">You may have difficulty understanding conversations when there is background noise</div>
+              </div>
+              <div class="hearing-row hearing-row--last">
+                <div class="hearing-condition__title">Significant Hearing Difficulties</div>
+                <div class="hearing-condition__description">You may have significant difficulties understanding speech when a person is talking at a normal level either in a quiet or noisy environment</div>
+              </div>
+            </div>
+
           </div>
         </div>
         <div class="align-content-space-between-3 mt-8">
@@ -200,8 +168,8 @@ export default {
 </script>
 <style scoped>
 .personal-info {
-  display: -ms-flexbox;
-  display: -webkit-box;
+  /* display: -ms-flexbox;
+  display: -webkit-box; */
   display: flex;
   gap: 0px;
   max-width: 33vw;
@@ -209,8 +177,7 @@ export default {
   padding-right: 2%;
   padding-bottom: 2%; */
   padding: 2%;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   /* padding-top: 0px; */
   border-radius: 10px;
   background: #1f2f40 !important;
@@ -243,7 +210,7 @@ export default {
 .small-screen {
   display: none;
 }
->>> .v-slider--horizontal .v-slider__track-container {
+/* >>> .v-slider--horizontal .v-slider__track-container {
   width: 100%;
   height: 20px;
   left: 0;
@@ -256,7 +223,7 @@ export default {
     #ffe600 50%,
     #ff3b16 100%
   ) !important;
-}
+} */
 :deep() .v-table > table > thead > tr {
   border-bottom: thin solid red;
 }
@@ -471,5 +438,174 @@ export default {
     margin: 0;
     width: inherit;
   }
+  .large-screen {
+    display: none;
+  }
+  .small-screen {
+    display: block;
+  }
+}
+.table-with-slider {
+  display: flex;
+}
+.slider-container {
+  background: linear-gradient(180deg, #4CBC25 0%, #FFE600 50%, #FF3B16 100%);
+  border-radius: 5px;
+  padding-top: 6px;
+}
+>>> .v-slider--vertical {
+  height: 270px;
+}
+>>> .v-slider--vertical .v-slider__thumb {
+  display: none;
+}
+>>> .v-slider--vertical .v-slider__thumb-label {
+  border-radius: 0;
+  transform: none !important;
+  width: 100% !important;
+  height: 32px !important;
+}
+>>> .v-slider--vertical .v-slider__thumb-label > * {
+  transform: none;
+}
+>>> .v-slider--vertical .thumb-label {
+  color: black;
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 11px;
+  line-height: 20px;
+  text-transform: uppercase;
+  transform: none;
+
+  width: 100px; 
+  height: 24px; 
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 3px;
+}
+>>> .v-slider--vertical .v-slider__track-container {
+  width: 110px;
+  position: relative;
+  border-radius: 5px;
+}
+>>> .v-slider--vertical .v-slider__thumb-label-container {
+  top: 12px;
+}
+>>> .v-slider--vertical.theme--light.v-slider .v-slider__thumb, 
+>>> .v-slider--vertical.theme--light.v-slider .v-slider__track-background, 
+>>> .v-slider--vertical.theme--light.v-slider .v-slider__track-fill {
+  background: rgba(0,0,0,0);
+}
+
+.hearing-condition__title {
+  color: #ffffff;
+}
+
+.result-table-2 {
+  display: flex;
+  flex-direction: column;
+}
+.result-table-2 .hearing-condition__title {
+    /* min-width: 5vw; */
+    /* margin-bottom: 16px; */
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 15px;
+    line-height: 20px;
+    /* or 133% */
+
+    /* #FFFFFF */
+
+    
+    display: flex;
+    align-items: center;
+    width: 45%;
+}
+
+
+.hearing-condition__description {
+  width: 55%;
+  color: #ffffff;
+
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 20px;
+
+  display: flex;
+  align-items: center;
+}
+
+.hearing-row {
+  flex: 1;
+  display: flex;
+  border-top: 1px solid rgb(255 255 255 / 24%);
+  gap: 2em;
+  padding-left: 20px;
+}
+.hearing-row--last {
+  border-bottom: 1px solid rgb(255 255 255 / 24%)
+}
+
+.small-slider-container {
+  background: #1F2F40;
+  border-radius: 10px;
+  padding: 5px 10px;
+}
+
+/* >>> .theme--light.v-slider .v-slider__thumb, 
+>>> .theme--light.v-slider .v-slider__track-background, 
+>>> .theme--light.v-slider .v-slider__track-fill {
+  background: rgba(0,0,0,0);
+} */
+>>> .small-slider-container .theme--light.v-slider .v-slider__thumb {
+  background: #fff;
+  width: 10px;
+  height: 32px;
+  border-radius: 0;
+}
+>>> .small-slider-container .v-slider__track-container {
+  background: linear-gradient(90deg, #ff3b16 0%, #ffe600 50%, #4cbc25 100% );
+  height: 20px;
+  border-radius: 5px;
+}
+>>> .v-slider__thumb::after {
+  display: none;
+}
+>>> .v-slider__thumb::before {
+  display: none;
+}
+.result-table {
+  display: flex;
+  margin: 0 8px;
+  border-right: 1px solid rgb(255, 255, 255, 0.2);
+}
+.result-table > div {
+  border-left: 1px solid rgb(255, 255, 255, 0.2);
+  flex: 1;
+}
+.result-table .hearing-condition__title {
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 18px;
+  margin: 0 10px;
+  text-align: center;
+}
+.help-button {
+  text-align: center;
+}
+.help-button button {
+  background-color: #1F2F40 !important;
+  width: 35px;
+}
+.help-button button:before {
+  width: 0;
+  height: 0;
 }
 </style>

@@ -31,7 +31,7 @@
           <v-btn
             class="warning-button mt-2"
             @click="$router.push('/aid-simulator')"
-            >Hear the benefit of a hearing aid
+            >Next Step
             <img class="ml-2" :src="require('@/assets/media/arrow-right.png')"
           /></v-btn>
         </div>
