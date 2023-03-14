@@ -81,5 +81,12 @@ export default {
     color: #ffffff;
   }
 }
+@media only screen and (max-width: 800px) {
+  .audien-title p {
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 30px;
+  }
+}
 
 </style>

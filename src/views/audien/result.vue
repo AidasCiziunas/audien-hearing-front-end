@@ -44,6 +44,9 @@
               </v-btn>
             </div>
           </div>
+          <div class="mobile-popup">
+            
+          </div>
         </div>
         <div class="align-content-space-between-2 large-screen">
           <div class="personal-info result">

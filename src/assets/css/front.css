@@ -1510,7 +1510,7 @@ theme--light.v-divider {
         max-width: 400px; */
 
         height: 100%;
-        width: 100vw;
+        width: 85vw;
         max-width: 400px;
 
     }
@@ -1525,8 +1525,72 @@ theme--light.v-divider {
     }
 
     .audien-title h1 {
-      font-size: 48px !important;
-      line-height: 56px !important;
+      /* font-size: 48px !important;
+      line-height: 56px !important; */
       margin-bottom: 20px;
+
+      font-size: 32px !important;
+      line-height: 40px !important;
+    }
+
+    /* overlay tooltip */
+    .mobile-tooltip {
+      position: fixed;
+      z-index: 100;
+      max-width: 100vw;
+      bottom: 0;
+      width: 100vw !important;
+      height: 40vh;
+      margin: 0 !important;
+      background: #102132;
+      border-radius: 30px 30px 0px 0px;
+      padding-top: 40px;
+      padding-right: 20px;
+      padding-left: 20px;
+      padding-bottom: 30px;
+    }
+    .mobile-tooltip .content {
+      font-family: Lato;
+      font-style: normal;
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 20px;
+  
+  
+      color: #FFFFFF;
+      position: relative;
+    }
+    .mobile-tooltip .content span {
+      /* opacity: 0.5; */
+    }
+    .mobile-tooltip:before {
+      content: " ";
+      position: absolute;
+      width: 60px;
+      height: 4px;
+  
+      background: #1C2E40;
+      border-radius: 4px;
+  
+      top: 18px;
+      left: calc(50% - 30px);
+    }
+    .mobile-tooltip__header {
+      font-size: 24px;
+      line-height: 32px;
+      margin: 0 20px;
+      text-align: center;
+  
+      font-family: 'Lato';
+      font-style: normal;
+      font-weight: 700;
+      /* font-size: 16px; */
+      color: #FFFFFF;
+    }
+
+    .tooltip-close {
+      position: absolute;
+      left: 0;
+      cursor: pointer;
     }
 }

@@ -8,8 +8,8 @@
           <h1 class="mt-5">Hearing Test</h1>
 
           <p class="mt-5">
-            Click 'Start' to begin, then click the 'Can't Hear' button when you
-            can no longer hear the sound
+            Click 'Start' to begin, then click the 'Can't Hear' button when you can no
+            longer hear the sound
           </p>
         </div>
         <div class="align-content-steps">
@@ -19,20 +19,14 @@
               @click="$router.push('/instruction')"
               style="width: 40%"
             >
-              <img
-                class="mr-2"
-                :src="require('@/assets/media/play-circle.png')"
-              />Start
+              <img class="mr-2" :src="require('@/assets/media/play-circle.png')" />Start
             </v-btn>
             <v-btn
               class="warning-button warning-button__ear mt-10"
               @click="$router.push('/instruction')"
-              style="width: 70%;"
+              style="width: 70%"
             >
-              <img
-                class="mr-2"
-                :src="require('@/assets/media/user-ear.png')"
-              />Left ear
+              <img class="mr-2" :src="require('@/assets/media/user-ear.png')" />Left ear
             </v-btn>
           </div>
         </div>
@@ -75,7 +69,7 @@
             outlined
           >+</v-btn>
         </div> -->
-        <div class="align-step-button mt-16">
+        <div class="align-step-button">
           <v-btn
             class="warning-button-outline mr-2 mt-5"
             @click="$router.push('/instruction')"
@@ -86,11 +80,20 @@
           /></v-btn>
           <v-btn
             class="warning-button mt-5"
-            style="width: 65%"
+            style="width: 65%;"
             @click="$router.push('/completing-hearing')"
-            >Next step
-            <img class="ml-2" :src="require('@/assets/media/arrow-right.png')"
+            >Next step <img class="ml-2" :src="require('@/assets/media/arrow-right.png')"
           /></v-btn>
+        </div>
+        <div class="mobile-only">
+          <div class="mobile-only__content">
+            <v-btn class="warning-button mt-5" style="width: 47%" @click="decreaseVol"
+              ><img class="ml-2" :src="require('@/assets/media/icon-minus.png')" />
+            </v-btn>
+            <v-btn class="warning-button mt-5" style="width: 47%" @click="increaseVol"
+              ><img class="ml-2" :src="require('@/assets/media/icon-plus.png')"
+            /></v-btn>
+          </div>
         </div>
       </div>
       <div class="back-office-page mobile-right right-side">
@@ -101,9 +104,9 @@
   </div>
 </template>
 <script>
-import headphone from '../../views/audien/headephone2.vue';
-import footerVue from '@/components/audien/footer.vue';
-import headerVue from '@/components/audien/header.vue';
+import headphone from "../../views/audien/headephone2.vue";
+import footerVue from "@/components/audien/footer.vue";
+import headerVue from "@/components/audien/header.vue";
 export default {
   components: {
     headphone,
@@ -115,15 +118,17 @@ export default {
       slider1: 0,
     };
   },
+  methods: {
+    decreaseVol() {
+      this.slider1 = this.slider1 - 5;
+    },
+    increaseVol() {
+      this.slider1 = this.slider1 + 5;
+    },
+  },
 };
 </script>
 <style>
-.v-slider__thumb {
-  border-radius: 2px;
-  height: 32px;
-  width: 10px;
-  z-index: 1;
-}
 .v-slider__thumb::after {
   display: none;
 }
@@ -132,7 +137,13 @@ export default {
 }
 </style>
 <style scoped>
-.volume{
+>>> .v-slider__thumb {
+  border-radius: 2px;
+  height: 32px;
+  width: 10px;
+  z-index: 1;
+}
+.volume {
   /* z-index: -11; */
 }
 
@@ -252,6 +263,7 @@ export default {
   margin-right: auto;
   display: flex;
   gap: 1vw; */
+  margin-top: 64px;
 }
 .theme--light.v-icon {
   color: #fff;
@@ -263,12 +275,7 @@ export default {
   top: 50%;
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
-  background: linear-gradient(
-    90deg,
-    #ff3b16 0%,
-    #ffe600 50%,
-    #4cbc25 100%
-  ) !important;
+  background: linear-gradient(90deg, #ff3b16 0%, #ffe600 50%, #4cbc25 100%) !important;
   border-radius: 5px;
   z-index: 1;
 }
@@ -293,13 +300,39 @@ export default {
   margin-right: auto;
 }
 .warning-button__ear {
-  background: #1F2F40 !important;
-  
+  background: #1f2f40 !important;
 }
 .warning-button__ear img {
   color: #fff;
 }
 >>> .warning-button__ear .v-btn__content {
   color: #fff !important;
+}
+
+@media only screen and (max-width: 800px) {
+  .align-step-button {
+    display: none;
+  }
+  .mobile-only {
+    padding-right: 15px;
+    padding-left: 15px;
+    position: absolute;
+    bottom: 40px;
+
+    z-index: 3;
+    width: 100vw;
+
+    display: flex;
+    justify-content: center;
+  }
+  .mobile-only__content {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+@media only screen and (min-width: 801px) {
+  .mobile-only {
+    display: none;
+  }
 }
 </style>

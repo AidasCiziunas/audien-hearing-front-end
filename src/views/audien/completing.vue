@@ -415,7 +415,7 @@ export default {
     color: #ffffff;
   }
 }
-@media only screen and (min-width: 301px) and (max-width: 800px) {
+@media only screen and (max-width: 800px) {
   .align-step-button button.warning-button {
     position: relative;
     bottom: inherit;
@@ -424,6 +424,9 @@ export default {
   /* .personal-info {
     margin-bottom: 20px;
   } */
+  .large-screen {
+    display: none;
+  }
 }
 
 </style>
