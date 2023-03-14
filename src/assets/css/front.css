@@ -120,6 +120,11 @@
     display: flex;
     gap: 1vw;
   }
+
+  .banner-with-person > .banner-image {
+    left: -6vw;
+    position: relative;
+  }
 }
 
 .small-screen {
@@ -200,12 +205,6 @@
         /* bottom: 0px !important;
         left: 0vw !important; */
         /* width: 100vw !important; */
-    }
-
-    .mobile-right img {
-        /* width: 100% !important;
-        margin: auto;
-        height: 50vh !important; */
     }
 
     .audien-title {
@@ -1160,7 +1159,7 @@ theme--light.v-divider {
     line-height: 20px;
     min-width: 10vw;
     color: #fff;
-    padding-right: 13vh;
+    /* padding-right: 13vh; */
     margin-left: 20vh !important;
     margin: 0 auto !important;
     /* padding-left: 7vh; */
@@ -1292,13 +1291,13 @@ theme--light.v-divider {
     .left-side {
         background: #102132 url('../media/mask-group.png')no-repeat center center / cover;
         height: auto;
-        min-height: 90vh;
+        /* min-height: 90vh; */
     }
 
     .back-office-page {
         background: url('../media/right-background.png')no-repeat center center / cover;
         height: auto;
-        min-height: 90vh;
+        /* min-height: 90vh; */
     }
 
     .get-start {
@@ -1395,10 +1394,7 @@ theme--light.v-divider {
   align-items: flex-end
 }
 
-.banner-with-person > .banner-image {
-  left: -2vw;
-  position: relative;
-}
+
 
 .mobile-banner-button {
     display: none;
@@ -1510,27 +1506,37 @@ theme--light.v-divider {
         display: none;
     }
 
-    .mobile-right .calendar {
+    .mobile-right .calendar2 {
       position: relative;
       top: -5vw;
       margin-left: 20px;
     }
 
-    .mobile-right .calendar img {
+    .mobile-right .calendar2 img {
       max-width: 500px;
       width: 100%;
       height: inherit;
     }
 
     .mobile-right img {
-        width: 80%;
+        /* width: 80%;
         margin: auto;
         height: inherit;
+        max-width: 400px; */
+
+        height: 100%;
+        width: 100vw;
         max-width: 400px;
+
     }
     .banner-with-person {
       background-position-y: 70px;
       background-color: #102132;
+    }
+
+    .banner-with-person img {
+      -webkit-mask-image: -webkit-gradient(linear, left 60%, 
+      left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0.3)));
     }
 
     .audien-title h1 {

@@ -25,14 +25,14 @@
               />Start
             </v-btn>
             <v-btn
-              class="warning-button mt-10"
+              class="warning-button warning-button__ear mt-10"
               @click="$router.push('/instruction')"
-              style="width: 70%; background: #403e29 !important"
+              style="width: 70%;"
             >
               <img
                 class="mr-2"
-                :src="require('@/assets/media/alert-circle.png')"
-              />Can't Hear
+                :src="require('@/assets/media/user-ear.png')"
+              />Left ear
             </v-btn>
           </div>
         </div>
@@ -291,5 +291,15 @@ export default {
   min-width: 26vw;
   margin-left: 10.6vw;
   margin-right: auto;
+}
+.warning-button__ear {
+  background: #1F2F40 !important;
+  
+}
+.warning-button__ear img {
+  color: #fff;
+}
+>>> .warning-button__ear .v-btn__content {
+  color: #fff !important;
 }
 </style>

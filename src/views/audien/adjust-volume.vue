@@ -94,7 +94,7 @@ export default {
   data() {
     return {
       slider1: 0,
-      isTooltipVisible: true
+      isTooltipVisible: false
     };
   },
   methods: {

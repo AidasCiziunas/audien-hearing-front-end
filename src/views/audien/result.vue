@@ -62,7 +62,7 @@
                   <td
                     style="border-top: 1px solid rgb(255 255 255 / 24%)"
                     width="120px"
-                    class="border-bottom-row p-2 pl-5 pt-4 pr-15"
+                    class="border-bottom-row p-2 pl-5 pt-4 pr-6"
                   >
                     <div class="table-title">Your Hearing is OK</div>
                   </td>
@@ -110,9 +110,9 @@
             </v-table>
           </div>
         </div>
-        <div class="align-content-space-between-3 mt-16">
+        <div class="align-content-space-between-3 mt-8">
           <v-btn
-            class="warning-button-outline mr-5 mt-5"
+            class="warning-button-outline mr-5"
             @click="$router.push('/completing-hearing')"
             color="#ffb404"
             outlined
@@ -120,7 +120,7 @@
             <img :src="require('@/assets/media/arrow-right-1.png')"
           /></v-btn>
           <v-btn
-            class="warning-button warning-button-next mt-5"
+            class="warning-button warning-button-next"
             @click="$router.push('/disclaimer')"
             >Next step
             <img class="ml-2" :src="require('@/assets/media/arrow-right.png')"

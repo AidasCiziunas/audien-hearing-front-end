@@ -112,7 +112,7 @@
         </div>
         <div class="align-step-button">
           <v-btn
-            class="warning-button-outline mr-5 mt-5"
+            class="warning-button-outline mr-5"
             @click="$router.push('/hearing-test')"
             color="#ffb404"
             outlined
@@ -159,6 +159,9 @@ export default {
 };
 </script>
 <style scoped>
+.banner-with-person > .banner-image {
+  left: -4vw;
+}
 @media only screen and (min-width: 301px) and (max-width: 800px) {
   .left-side {
     /* height: 100vh; */
