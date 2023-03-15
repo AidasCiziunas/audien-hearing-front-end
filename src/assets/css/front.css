@@ -1010,7 +1010,7 @@ theme--light.v-divider {
 
 .volume {
     text-align: start;
-    width: 40vw;
+    /* width: 40vw; */
     height: 80px;
     left: 310px;
     top: 446px;

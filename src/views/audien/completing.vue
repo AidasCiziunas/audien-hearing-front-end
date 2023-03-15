@@ -178,7 +178,7 @@ export default {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  width: 26vw;
+  /* width: 26vw; */
   min-width: 26vw;
   margin-left: 10.6vw;
   margin-right: auto;

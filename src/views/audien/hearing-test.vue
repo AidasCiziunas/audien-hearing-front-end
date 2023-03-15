@@ -22,6 +22,15 @@
               <img class="mr-2" :src="require('@/assets/media/play-circle.png')" />Start
             </v-btn>
             <v-btn
+              class="warning-button-outline mt-10 pause-button"
+              @click="$router.push('/instruction')"
+              style="width: 40%; display: none;"
+              outlined
+              color="#ffb404"
+            >
+              <img class="mr-2" :src="require('@/assets/media/pause-circle.png')" />Pause
+            </v-btn>
+            <v-btn
               class="warning-button warning-button__ear mt-10"
               @click="$router.push('/instruction')"
               style="width: 70%"
@@ -51,6 +60,24 @@
               v-model="slider1"
             >
             </v-slider>
+          </div>
+          <div class="desktop-only">
+            <div class="d-flex justify-space-between">
+              <v-btn 
+                class="warning-button-outline mt-5" 
+                color="#ffb404" 
+                style="width: 47%"
+                outlined
+              ><img :src="require('@/assets/media/icon-minus-orange.png')" 
+              /></v-btn>
+              <v-btn 
+                class="warning-button-outline mt-5" 
+                color="#ffb404" 
+                style="width: 47%"
+                outlined
+              ><img :src="require('@/assets/media/icon-plus-orange.png')" 
+              /></v-btn>
+            </div>
           </div>
         </div>
         <!-- <div class="d-flex justify-space-between" style="margin-left: 10.6vw; margin-right: auto; width: 30vw;">
@@ -85,12 +112,12 @@
             >Next step <img class="ml-2" :src="require('@/assets/media/arrow-right.png')"
           /></v-btn>
         </div>
-        <div class="mobile-only">
+        <div class="mobile-only" style="display: none;">
           <div class="mobile-only__content">
-            <v-btn class="warning-button mt-5" style="width: 47%" @click="decreaseVol"
+            <v-btn class="warning-button mt-5" style="width: 47%"
               ><img class="ml-2" :src="require('@/assets/media/icon-minus.png')" />
             </v-btn>
-            <v-btn class="warning-button mt-5" style="width: 47%" @click="increaseVol"
+            <v-btn class="warning-button mt-5" style="width: 47%"
               ><img class="ml-2" :src="require('@/assets/media/icon-plus.png')"
             /></v-btn>
           </div>
@@ -117,15 +144,7 @@ export default {
     return {
       slider1: 0,
     };
-  },
-  methods: {
-    decreaseVol() {
-      this.slider1 = this.slider1 - 5;
-    },
-    increaseVol() {
-      this.slider1 = this.slider1 + 5;
-    },
-  },
+  }
 };
 </script>
 <style>
@@ -308,10 +327,13 @@ export default {
 >>> .warning-button__ear .v-btn__content {
   color: #fff !important;
 }
+>>> .pause-button .v-btn__content {
+  color: #fff !important;
+}
 
 @media only screen and (max-width: 800px) {
   .align-step-button {
-    display: none;
+    /* display: none; */
   }
   .mobile-only {
     padding-right: 15px;
@@ -334,5 +356,13 @@ export default {
   .mobile-only {
     display: none;
   }
+}
+@media only screen and (max-width: 800px) {
+  .desktop-only {
+    display: none;
+  }
+}
+.align-content-space-between {
+  flex-direction: column;
 }
 </style>
