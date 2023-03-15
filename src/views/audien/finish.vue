@@ -70,9 +70,9 @@
                     </div>
                   </div>
 
-                  <v-btn
+                  <v-btn 
                     class="buy-now-btn mt-2"
-                    @click="$router.push('/finish')"
+                     @click="buyOne"
                     color="#ffb404"
                   >
                     <img :src="require('@/assets/media/icon-cart-black.png')" />
@@ -133,7 +133,7 @@
 
                   <v-btn
                     class="buy-now-btn mt-2"
-                    @click="$router.push('/finish')"
+                    @click="buytwo"
                     color="#ffb404"
                   >
                     <img :src="require('@/assets/media/icon-cart-black.png')" />
@@ -203,7 +203,7 @@
             >Compare specifications</v-btn>
           <v-btn
             class="warning-button-outline"
-            @click="$router.push('/')"
+            @click="resetStore"
             color="#ffb404"
             outlined
           >
@@ -268,7 +268,7 @@
 
                   <v-btn
                     class="buy-now-btn mt-2"
-                    @click="$router.push('/finish')"
+                    @click="buytwo"
                     color="#ffb404"
                   >
                     <img :src="require('@/assets/media/icon-cart-black.png')" />
@@ -330,7 +330,7 @@
 
                   <v-btn
                     class="buy-now-btn mt-2"
-                    @click="$router.push('/finish')"
+                    @click="buyOne"
                     color="#ffb404"
                   >
                     <img :src="require('@/assets/media/icon-cart-black.png')" />
@@ -360,8 +360,18 @@ export default {
     };
   },
   methods: {
+    resetStore(){
+      this.$store.dispatch('resetStore')
+      this.$router.push('/')
+    },
     toggleTooltip() {
       this.isTooltipVisible = !this.isTooltipVisible
+    },
+    buyOne(){
+      window.open('https://audienhearing.com/', '_blank', 'noreferrer');
+    },
+    buytwo(){
+      window.open('https://audienhearing.com/products/audien-atom-pro-pair', '_blank', 'noreferrer');
     }
   }
 };

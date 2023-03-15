@@ -24,6 +24,11 @@ const mutations = {
   },
   updateLog(state,data){
     state.dataLog=data;
+  },
+  reset(state){
+    state.dataLog=null;
+    state.currentPlayedIndex=0;
+    state.testSounds=[]
   }
 
  
@@ -45,6 +50,9 @@ const actions = {
   },
   maintainHistory({commit},payload){
     commit('updateLog',payload);
+  },
+  resetStore({commit}){
+    commit('reset');
   }
   
  

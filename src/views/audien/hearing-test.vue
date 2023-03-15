@@ -40,10 +40,11 @@
             </v-btn>
             <v-btn
               class="warning-button warning-button__ear mt-10"
-              @click="$router.push('/instruction')"
+             
+              :disabled="unplayed.length>=3"
               style="width: 70%"
             >
-              <img class="mr-2" :src="require('@/assets/media/user-ear.png')" />Left ear
+              <img class="mr-2" :src="require('@/assets/media/user-ear.png')" />Left ear {{unplayed.length}}
             </v-btn>
           </div>
         </div>
@@ -259,7 +260,7 @@ export default {
     }
   },
    created(){
-let seletecdSound = this.audios.slice(0, 5).map(function () { 
+let seletecdSound = this.audios.slice(0, 8).map(function () { 
         return this.splice(Math.floor(Math.random() * this.length), 1)[0];
     }, this.audios.slice());
     this.$store.dispatch('setHearingTestSounds',seletecdSound)
@@ -305,7 +306,9 @@ let seletecdSound = this.audios.slice(0, 5).map(function () {
       console.log(this.played);
       if(this.played===false){
         console.log('@@@@')
+        
          audioElement.play()
+       
          }else{
            audioElement.pause()
          }

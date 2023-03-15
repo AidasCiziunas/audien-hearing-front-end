@@ -44,9 +44,10 @@
             Next Step
             <img class="ml-2" :src="require('@/assets/media/arrow-right.png')" />
           </v-btn>
+           <audio ref="test" id="audio" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/858/outfoxing.mp3" crossorigin="anonymous" ></audio>
         </div>
       </div>
-      <div class="back-office-page mobile-right right-side">
+      <div ref="myBtn" class="back-office-page mobile-right right-side">
         <headephone />
       </div>
     </div>
@@ -57,17 +58,59 @@
 import footerVue from "../../components/audien/footer.vue";
 import headerVue from "../../components/audien/header.vue";
 import headephone from "./headephone2.vue";
+
+let audioElement,audioCtx,pannerOptions,gainNode,track,AudioContext,panner
 export default {
   components: {
     headephone,
     footerVue,
     headerVue,
   },
+  watch: {
+    // whenever question changes, this function will run
+    ear(selectedEar, oldQuestion) {
+     panner.pan.value = -1;
+      // this.refreshData();
+      	// panner.pan.value = newQuestion;	
+    
+    }
+  },
+ created(){
+      
+    this.$refs.myBtn.click()
+    },
+  mounted(){
+    this.$refs.myBtn.click()
+   
+     this.refreshData()
+    setInterval(this.refreshData, 5000)
+  },
   data() {
     return {
       ear: "off",
     };
   },
+  methods:{
+   
+     refreshData() {
+     
+       AudioContext = window.AudioContext || window.webkitAudioContext;
+ audioCtx = new AudioContext();
+
+// load some sound
+ audioElement =  this.$refs.test;
+
+ pannerOptions = {pan: -1};
+ track = audioCtx.createMediaElementSource(audioElement);
+ panner = new StereoPannerNode(audioCtx, pannerOptions);
+ gainNode = audioCtx.createGain();
+track.connect(gainNode).connect(panner).connect(audioCtx.destination);
+      	panner.pan.value = -1;
+       
+      audioElement.play()
+        
+    }
+  }
 };
 </script>
 <style scoped>

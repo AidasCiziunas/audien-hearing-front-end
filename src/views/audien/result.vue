@@ -204,6 +204,9 @@ export default {
       isTooltipVisible: false,
     };
   },
+  mounted(){
+this.slider1=this.$store.state.HearingTest.dataLog.test_result.score*10;
+  },
   methods: {
     toggleTooltip() {
       this.isTooltipVisible = !this.isTooltipVisible
