@@ -44,7 +44,7 @@
               :disabled="unplayed.length>=3"
               style="width: 70%"
             >
-              <img class="mr-2" :src="require('@/assets/media/user-ear.png')" />Left ear {{unplayed.length}}
+              <img class="mr-2" :src="require('@/assets/media/user-ear.png')" />Left ear 
             </v-btn>
           </div>
         </div>
