@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-
+import apiClient from '@/config/axios';
+import store from './store';
 Vue.use(Router);
 
 const router = new Router({
@@ -25,7 +26,7 @@ const router = new Router({
           slug: 'fb',
           component: () => import('./views/audien/index.vue'),
 
-          external: !JSON.parse(process.env.VUE_APP_ALLOW_HOME_TAB),
+         
           banner: true,
         },
         {
@@ -34,7 +35,7 @@ const router = new Router({
           slug: 'fb',
           component: () => import('./views/audien/BirthDay.vue'),
 
-          external: !JSON.parse(process.env.VUE_APP_ALLOW_HOME_TAB),
+         
           banner: true,
         },
         {
@@ -43,7 +44,7 @@ const router = new Router({
           slug: 'fb',
           component: () => import('./views/audien/bestResult.vue'),
 
-          external: !JSON.parse(process.env.VUE_APP_ALLOW_HOME_TAB),
+        
           banner: true,
         },
         {
@@ -52,7 +53,7 @@ const router = new Router({
           slug: 'fb',
           component: () => import('./views/audien/adjust-volume.vue'),
 
-          external: !JSON.parse(process.env.VUE_APP_ALLOW_HOME_TAB),
+         
           banner: true,
         },
         {
@@ -61,7 +62,7 @@ const router = new Router({
           slug: 'fb',
           component: () => import('./views/audien/ear.vue'),
 
-          external: !JSON.parse(process.env.VUE_APP_ALLOW_HOME_TAB),
+       
           banner: true,
         },
         {
@@ -70,7 +71,7 @@ const router = new Router({
           slug: 'fb',
           component: () => import('./views/audien/instruction.vue'),
 
-          external: !JSON.parse(process.env.VUE_APP_ALLOW_HOME_TAB),
+        
           banner: true,
         },
         {
@@ -79,7 +80,7 @@ const router = new Router({
           slug: 'fb',
           component: () => import('./views/audien/hearing-test.vue'),
 
-          external: !JSON.parse(process.env.VUE_APP_ALLOW_HOME_TAB),
+       
           banner: true,
         },
         {
@@ -88,7 +89,7 @@ const router = new Router({
           slug: 'fb',
           component: () => import('./views/audien/completing.vue'),
 
-          external: !JSON.parse(process.env.VUE_APP_ALLOW_HOME_TAB),
+      
           banner: true,
         },
         {
@@ -97,7 +98,7 @@ const router = new Router({
           slug: 'fb',
           component: () => import('./views/audien/result.vue'),
 
-          external: !JSON.parse(process.env.VUE_APP_ALLOW_HOME_TAB),
+       
           banner: true,
         },
         {
@@ -106,7 +107,7 @@ const router = new Router({
           slug: 'fb',
           component: () => import('./views/audien/disclaimer.vue'),
 
-          external: !JSON.parse(process.env.VUE_APP_ALLOW_HOME_TAB),
+        
           banner: true,
         },
         {
@@ -115,7 +116,7 @@ const router = new Router({
           slug: 'fb',
           component: () => import('./views/audien/aid-simulator.vue'),
 
-          external: !JSON.parse(process.env.VUE_APP_ALLOW_HOME_TAB),
+        
           banner: true,
         },
         {
@@ -124,11 +125,21 @@ const router = new Router({
           slug: 'fb',
           component: () => import('./views/audien/finish.vue'),
 
-          external: !JSON.parse(process.env.VUE_APP_ALLOW_HOME_TAB),
+        
           banner: true,
         },
       ],
     }]
 });
+
+router.beforeEach((to, from, next)=>{
+  apiClient.get("user-added-data",{}).then((response)=>{
+    console.log(response);
+    store.dispatch('maintainHistory',response.data.data)
+    next()
+  })
+  next()
+  
+})
 
 export default router;

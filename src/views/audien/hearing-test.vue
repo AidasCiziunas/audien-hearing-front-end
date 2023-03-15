@@ -6,29 +6,37 @@
         <div class="audien-title">
           <span class="mb-5 steps">STEP 6 of 20</span>
           <h1 class="mt-5">Hearing Test</h1>
-
+  
           <p class="mt-5">
-            Click 'Start' to begin, then click the 'Can't Hear' button when you can no
-            longer hear the sound
+            Click 'Start' to begin, then click the 'Can't Hear' button when you
+            can no longer hear the sound
+       
+          </p>
+           <p v-if="unplayed.length==0" class="mt-5">
+            Test Successfully completed.
+       
           </p>
         </div>
-        <div class="align-content-steps">
+        <div v-if="unplayed.length>0" class="align-content-steps">
           <div class="align-btn">
             <v-btn
+              v-if="!played"
               class="warning-button mt-10"
-              @click="$router.push('/instruction')"
+              @click="nextSoundPlayed(); played=!played"
               style="width: 40%"
             >
               <img class="mr-2" :src="require('@/assets/media/play-circle.png')" />Start
             </v-btn>
-            <v-btn
-              class="warning-button-outline mt-10 pause-button"
-              @click="$router.push('/instruction')"
-              style="width: 40%; display: none;"
-              outlined
-              color="#ffb404"
+             <v-btn
+              v-if="played"
+              class="warning-button mt-10"
+              @click="play(); played=!played"
+              style="width: 40%"
             >
-              <img class="mr-2" :src="require('@/assets/media/pause-circle.png')" />Pause
+              <img
+                class="mr-2"
+                :src="require('@/assets/media/play-circle.png')"
+              />Stop
             </v-btn>
             <v-btn
               class="warning-button warning-button__ear mt-10"
@@ -39,7 +47,7 @@
             </v-btn>
           </div>
         </div>
-        <div class="align-content-space-between">
+        <div v-if="unplayed.length>0" class="align-content-space-between">
           <div class="volume mt-10">
             <v-slider
               track-color="linear-gradient(
@@ -57,7 +65,7 @@
               thumb-size="50"
               step="10"
               tick-size="10"
-              v-model="slider1"
+              v-model="volume"
             >
             </v-slider>
           </div>
@@ -106,11 +114,24 @@
             <img :src="require('@/assets/media/arrow-right-1.png')"
           /></v-btn>
           <v-btn
+            v-if="unplayed.length==0"
             class="warning-button mt-5"
-            style="width: 65%;"
-            @click="$router.push('/completing-hearing')"
-            >Next step <img class="ml-2" :src="require('@/assets/media/arrow-right.png')"
+            style="width: 65%"
+            @click="suspendNext()"
+            >Next step
+            <img class="ml-2" :src="require('@/assets/media/arrow-right.png')"
           /></v-btn>
+          <v-btn
+            v-if="unplayed.length>0"
+            class="warning-button mt-5"
+            style="width: 65%"
+            :disabled="!hearingTest[currentPlayedIndex].played"
+            @click="NextPlay()"
+            >Next
+            <!-- <img class="ml-2" :src="require('@/assets/media/arrow-right.png')" -->
+          <!-- /> -->
+          </v-btn>
+             <audio ref="test" id="audio" :src="hearingTest[currentPlayedIndex].sound.default" crossorigin="anonymous" ></audio>
         </div>
         <div class="mobile-only" style="display: none;">
           <div class="mobile-only__content">
@@ -123,7 +144,7 @@
           </div>
         </div>
       </div>
-      <div class="back-office-page mobile-right right-side">
+      <div ref="myBtn" class="back-office-page mobile-right right-side">
         <headphone />
       </div>
     </div>
@@ -131,9 +152,13 @@
   </div>
 </template>
 <script>
-import headphone from "../../views/audien/headephone2.vue";
-import footerVue from "@/components/audien/footer.vue";
-import headerVue from "@/components/audien/header.vue";
+import headphone from '../../views/audien/headephone2.vue';
+import footerVue from '@/components/audien/footer.vue';
+import headerVue from '@/components/audien/header.vue';
+import { mapState } from 'vuex';
+import apiClient from '@/config/axios';
+let audioElement,audioCtx,pannerOptions,gainNode,track,AudioContext,panner
+
 export default {
   components: {
     headphone,
@@ -142,9 +167,197 @@ export default {
   },
   data() {
     return {
+      played:false,
       slider1: 0,
+      volume:1,
+      audios:[
+        {
+          id:1,
+          sound:require('@/assets/media/sounds/10-sec-countdown-with-echo-77616.mp3'),
+          played:false,
+        },
+        {
+          id:2,
+          sound:require('@/assets/media/sounds/10-second-count-down-104235.mp3'),
+          played:false,
+        },
+        {
+          id:3,
+          sound:require('@/assets/media/sounds/answering-machine-female-out-of-town-103769.mp3'),
+          played:false,
+        },
+        {
+          id:4,
+          sound:require('@/assets/media/sounds/birds-19624.mp3'),
+          played:false,
+        },
+        {
+          id:5,
+          sound:require('@/assets/media/sounds/children2-75773.mp3'),
+          played:false,
+        },
+        {
+          id:6,
+          sound:require('@/assets/media/sounds/corona-announcement-subway-hvv-hamburg-63822.mp3'),
+          played:false,
+        },
+        {
+          id:7,
+          sound:require('@/assets/media/sounds/countdown-stereo-delay-102242.mp3'),
+          played:false,
+        },
+        {
+          id:8,
+          sound:require('@/assets/media/sounds/fantastic-end-skirt-from-the-book-of-death-rhymes-72723.mp3'),
+          played:false,
+        },
+        {
+          id:9,
+          sound:require('@/assets/media/sounds/morning-street-car-passing-by-birds-singing-63924.mp3'),
+          played:false,
+        },
+        {
+          id:10,
+          sound:require('@/assets/media/sounds/no-one-likes-to-be-told-what-to-do-36534.mp3'),
+          played:false,
+        },
+        {
+          id:11,
+          sound:require('@/assets/media/sounds/rain-sounds-the-sound-of-summer-rain-141793.mp3'),
+          played:false,
+        },
+        {
+          id:12,
+          sound:require('@/assets/media/sounds/theatre-class-lecture-29730.mp3'),
+          played:false,
+        },
+        {
+          id:13,
+          sound:require('@/assets/media/sounds/video-game-count-and-more-63828.mp3'),
+          played:false,
+        },
+        {
+          id:14,
+          sound:require('@/assets/media/sounds/what-are-you-doing-22344.mp3'),
+          played:false,
+        },
+        {
+          id:15,
+          sound:require('@/assets/media/sounds/what-is-this-what-are-these-63645.mp3'),
+          played:false,
+        },
+        {
+          id:16,
+          sound:require('@/assets/media/sounds/writing-on-paper-6988.mp3'),
+          played:false,
+        }
+      ]
     };
+<<<<<<< HEAD
   }
+=======
+  },
+  computed:{
+    currentPlayedIndex(){
+      return this.$store.state.HearingTest.currentPlayedIndex
+    },
+    hearingTest(){
+      return this.$store.state.HearingTest.testSounds
+    },
+    unplayed(){
+      return this.$store.state.HearingTest.testSounds.filter((item)=>{
+        return item.played == false;
+      })
+    }
+  },
+    watch: {
+    // whenever question changes, this function will run
+    volume(volume, oldQuestion) {
+     gainNode.gain.value =volume/100;
+      // this.refreshData();
+      	// panner.pan.value = newQuestion;	
+    
+    }
+  },
+   created(){
+let seletecdSound = this.audios.slice(0, 5).map(function () { 
+        return this.splice(Math.floor(Math.random() * this.length), 1)[0];
+    }, this.audios.slice());
+    this.$store.dispatch('setHearingTestSounds',seletecdSound)
+    this.$refs.myBtn.click()
+    },
+  mounted(){
+    
+    this.$refs.myBtn.click()
+   
+     this.refreshData()
+    setInterval(this.refreshData, 5000)
+  },
+   methods:{
+    nextSoundPlayed(){
+      console.log(this.currentPlayedIndex);
+       this.$store.dispatch('nextSoundPlayed',this.currentPlayedIndex)
+       if(this.played===false){
+        console.log('@@@@')
+         audioElement.play()
+         }else{
+           audioElement.pause()
+         }
+         this.volume =1;
+    },
+    NextPlay(){
+     let volume = (this.volume/100)*10;
+     let soundId = this.hearingTest[this.currentPlayedIndex].id;
+     apiClient.post("attempt-test",{
+    "sound_id": soundId,
+    "sound_volume": volume
+     }).then((response)=>{
+
+     ;
+       this.$store.dispatch('nextSound',this.currentPlayedIndex+1)
+       audioElement.pause();
+       console.log('##############')
+       this.played=false;
+         })
+   
+    },
+    play(){
+      console.clear()
+      console.log(this.played);
+      if(this.played===false){
+        console.log('@@@@')
+         audioElement.play()
+         }else{
+           audioElement.pause()
+         }
+    },
+    suspendNext(){
+	console.log(audioCtx.state);
+  this.$router.push('/completing-hearing');
+    },
+     refreshData() {
+       AudioContext = window.AudioContext || window.webkitAudioContext;
+ audioCtx = new AudioContext();
+
+// load some sound
+ audioElement =  this.$refs.test;
+
+ pannerOptions = {pan: -1};
+ track = audioCtx.createMediaElementSource(audioElement);
+ panner = new StereoPannerNode(audioCtx, pannerOptions);
+ gainNode = audioCtx.createGain();
+track.connect(gainNode).connect(panner).connect(audioCtx.destination);
+     gainNode.gain.value = this.volume/100;
+   
+    },
+    decreaseVol() {
+      this.slider1 = this.slider1 - 5;
+    },
+    increaseVol() {
+      this.slider1 = this.slider1 + 5;
+    },
+   }
+>>>>>>> fe1a09c722e572fe4cf8ce83238a42b4e5a90794
 };
 </script>
 <style>
@@ -274,7 +487,9 @@ export default {
   background-color: #fff;
   opacity: 0.2;
 }
-
+.theme--light.v-btn.v-btn--disabled.v-btn--has-bg {
+    background-color: rgb(255 180 4 / 57%) !important;
+}
 .align-step-button {
   /* width: 26vw;
   min-width: 26vw;
