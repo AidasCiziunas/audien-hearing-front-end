@@ -67,13 +67,14 @@
           >
             <img :src="require('@/assets/media/arrow-right-1.png')"
           /></v-btn>
-          <v-btn class="warning-button" @click="$router.push('/instruction')"
+          <v-btn class="warning-button" @click="suspendNext()"
             >Next step
             <img class="ml-2" :src="require('@/assets/media/arrow-right.png')"
           /></v-btn>
+           <audio ref="test" id="audio" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/858/outfoxing.mp3" crossorigin="anonymous" ></audio>
         </div>
       </div>
-      <div class="back-office-page mobile-right right-side">
+      <div ref="myBtn" class="back-office-page mobile-right right-side">
         <headephone />
       </div>
     </div>
@@ -84,6 +85,8 @@
 import AppFooterVue from '../../components/audien/footer.vue';
 import headephone from './headephone2.vue';
 import headerVue from '../../components/audien/header.vue';
+import apiClient from '@/config/axios';
+let audioElement,audioCtx,pannerOptions,gainNode,track,AudioContext,panner
 export default {
   components: {
     headephone,
@@ -94,14 +97,61 @@ export default {
   data() {
     return {
       slider1: 0,
+      volume:0.2,
       isTooltipVisible: true
     };
   },
-  methods: {
+     watch: {
+    // whenever question changes, this function will run
+    slider1(volume, oldQuestion) {
+     gainNode.gain.value =volume/100;
+      // this.refreshData();
+      	// panner.pan.value = newQuestion;	
+    
+    }
+  },
+   created(){
+    this.volume = this.$store.state.HearingTest.dataLog.sound_frequency*10;
+    this.slider1 = this.$store.state.HearingTest.dataLog.sound_frequency*10;
+    this.$refs.myBtn.click()
+    },
+  mounted(){
+    this.$refs.myBtn.click()
+   
+     this.refreshData()
+    setInterval(this.refreshData, 5000)
+  },
+   methods:{
+    suspendNext(){
+      apiClient.post("sound-frequency",{frequency:(this.slider1/100)*10}).then((response)=>{
+	console.log(audioCtx.state);
+
+  this.$router.push('/instruction');
+  })
+    },
+     refreshData() {
+       AudioContext = window.AudioContext || window.webkitAudioContext;
+ audioCtx = new AudioContext();
+
+// load some sound
+ audioElement =  this.$refs.test;
+
+ pannerOptions = {pan: -1};
+ track = audioCtx.createMediaElementSource(audioElement);
+ panner = new StereoPannerNode(audioCtx, pannerOptions);
+ gainNode = audioCtx.createGain();
+track.connect(gainNode).connect(panner).connect(audioCtx.destination);
+     gainNode.gain.value = this.volume/100;
+    
+      audioElement.play()
+    },
     toggleTooltip() {
       this.isTooltipVisible = !this.isTooltipVisible
     }
-  }
+  
+  },
+ 
+    
 };
 </script>
 <style scoped>

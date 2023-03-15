@@ -39,15 +39,32 @@
                     :src="require('@/assets/media/date-calendar.png')"
                   />
                 </i>
-                <input
+                <select
                   class="input-field"
                   type="text"
                   v-model="date"
                   placeholder="Username"
                   name="usrnm"
-                  v-on="on"
-                />
-                <i class="icon left arrow-down-icon" v-on="on">
+                 
+                >
+                <option value="2003">2003</option>
+                <option value="2002">2002</option>
+                <option value="2001">2001</option>
+                <option value="2000">2000</option>
+                <option value="1999">1999</option>
+                <option value="1998">1997</option>
+                <option value="1996">1996</option>
+                 <option value="1995">1995</option>
+                 <option value="1994">1994</option>
+                 <option value="1993">1993</option>
+                 <option value="1992">1992</option>
+                 <option value="1991">1991</option>
+                 <option value="1990">1990</option>
+                 <option value="1989">1989</option>
+                <option value="1988">1988</option>
+                <option value="1987">1987</option>
+                </select>
+                <i class="icon left arrow-down-icon">
                   <img
 
                     :src="require('@/assets/media/arrow-down.png')"
@@ -55,7 +72,12 @@
                 </i>
               </div>
             </template>
-            <v-date-picker v-model="date" type="month" no-title scrollable>
+            <v-date-picker 
+               v-model="date"  
+               min="2018-NaN-NaN"
+                max="2020-NaN-NaN"
+                @change='monthMenu = false'
+               type="year" no-title scrollable>
               <v-spacer></v-spacer>
               <v-btn flat color="primary" @click="menu = false">Cancel</v-btn>
               <v-btn flat color="primary" @click="$refs.menu.save(date)"
@@ -88,7 +110,7 @@
         <div class="align-step-button mt-10">
           <v-btn
             class="warning-button mt-lg-15"
-            @click="$router.push('/best-result')"
+            @click="submitYear"
             >Next step
             <img class="ml-2" :src="require('@/assets/media/arrow-right.png')"
           /></v-btn>
@@ -107,6 +129,7 @@
 <script>
 import footerVue from '@/components/audien/footer.vue';
 import headerVue from '@/components/audien/header.vue';
+import apiClient from '@/config/axios';
 export default {
   components: {
     footerVue,
@@ -114,10 +137,20 @@ export default {
   },
 
   data: () => ({
-    date: new Date().toISOString().substr(0, 4),
+    date: 2003,
     menu: false,
     modal: false,
   }),
+  methods:{
+    submitYear(){
+      apiClient.post('birth-year',{
+        birth_year:this.date
+      }).then((response)=>{
+       this.$router.push('/best-result')
+      })
+      // 
+    }
+  }
 };
 </script>
 <style scoped>

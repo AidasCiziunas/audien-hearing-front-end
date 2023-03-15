@@ -19,7 +19,7 @@
               <v-row>
                 <v-col class="col-md-6 col-sm-12 col-lg-6" cols="12">
                   <v-text-field
-                    v-model="firstname"
+                    v-model="firstName"
                     class="completing-input"
                     outlined
                     label="First name"
@@ -37,7 +37,7 @@
                 </v-col>
                 <v-col class="col-md-6 col-sm-12 col-lg-6" cols="12">
                   <v-text-field
-                    v-model="lastname"
+                    v-model="lastName"
                     class="completing-input"
                     outlined
                     textFieldClasses="completing-input"
@@ -80,6 +80,7 @@
                     class="completing-input"
                     label="Contact Number"
                     outlined
+                    v-model="contactNumber"
                     wrapperClasses="completing-input-phone"
                     size="sm"
                     dense
@@ -122,7 +123,7 @@
 
           <v-btn
             class="warning-button"
-            @click="$router.push('/result')"
+            @click="submitUser"
             >Next step
             <img class="ml-2" :src="require('@/assets/media/arrow-right.png')"
           /></v-btn>
@@ -142,6 +143,7 @@
 import footerVue from '@/components/audien/footer.vue';
 import headerVue from '@/components/audien/header.vue';
 import VueTelInputVuetify from 'vue-tel-input-vuetify/lib/vue-tel-input-vuetify.vue';
+import apiClient from '@/config/axios';
 export default {
   components: {
     // PhoneNumSelect,
@@ -154,8 +156,40 @@ export default {
       slider1: 0,
       yourValue: null,
       premobileval: null,
+      firstName:null,
+      lastName:null,
+      email:null,
+      contactNumber:null
     };
   },
+  computed:{
+   
+  },
+  mounted(){
+    this.firstName = this.$store.state.HearingTest.dataLog.user.first_name;
+    this.lastName  = this.$store.state.HearingTest.dataLog.user.last_name;
+    this.email  = this.$store.state.HearingTest.dataLog.user.email
+    this.contactNumber  = this.$store.state.HearingTest.dataLog.user.contact_number
+  },
+  methods:{
+    submitUser(){
+      apiClient.post("user",{
+         "first_name":this.firstName,
+         "last_name":this.lastName,
+         "email":this.email,
+         "contact_number":this.contactNumber
+      }).then((response)=>{
+        apiClient.post("complete-test",
+        {
+           "test":"complete"
+        }).then((response)=>{
+        this.$router.push('/result')
+        }).catch((error)=>{
+          this.$router.push('/result')
+        })
+      })
+    }
+  }
 };
 </script>
 <style scoped>
