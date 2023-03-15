@@ -253,9 +253,6 @@ export default {
         }
       ]
     };
-<<<<<<< HEAD
-  }
-=======
   },
   computed:{
     currentPlayedIndex(){
@@ -309,8 +306,8 @@ let seletecdSound = this.audios.slice(0, 5).map(function () {
      let volume = (this.volume/100)*10;
      let soundId = this.hearingTest[this.currentPlayedIndex].id;
      apiClient.post("attempt-test",{
-    "sound_id": soundId,
-    "sound_volume": volume
+      "sound_id": soundId,
+      "sound_volume": volume
      }).then((response)=>{
 
      ;
@@ -350,14 +347,7 @@ track.connect(gainNode).connect(panner).connect(audioCtx.destination);
      gainNode.gain.value = this.volume/100;
    
     },
-    decreaseVol() {
-      this.slider1 = this.slider1 - 5;
-    },
-    increaseVol() {
-      this.slider1 = this.slider1 + 5;
-    },
    }
->>>>>>> fe1a09c722e572fe4cf8ce83238a42b4e5a90794
 };
 </script>
 <style>
