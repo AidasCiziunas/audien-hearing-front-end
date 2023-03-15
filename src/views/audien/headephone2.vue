@@ -6,7 +6,7 @@
         <div class="banner-button">
           <div class="gradient-one">
             <div class="gradient-two">
-              <button @click="$router.push('/birth-day')" class="get-start">
+              <button  class="get-start">
                 <img :src="require('@/assets/media/sound.png')" />
               </button>
             </div>

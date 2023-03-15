@@ -1,13 +1,13 @@
 <template>
   <div class="headphone">
     <div class="banner-image">
-      <img :src="require('@/assets/media/headphones.png').default" />
+      <!-- <img :src="require('@/assets/media/headphones.png').default" /> -->
     </div>
     <div class="banner-button">
       <div class="gradient-one">
         <div class="gradient-two">
-          <button @click="$router.push('/birth-day')" class="get-start">
-            <img :src="require('@/assets/media/sound.png')" />
+          <button  class="get-start">
+            <!-- <img :src="require('@/assets/media/sound.gif')" /> -->
           </button>
         </div>
       </div>
