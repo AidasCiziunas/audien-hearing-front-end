@@ -193,6 +193,10 @@ export default {
 };
 </script>
 <style scoped>
+>>>.theme--light.v-input input, .theme--light.v-input textarea {
+    color: #fff !important;
+    font-size:12px;
+}
 .banner-with-person > .banner-image {
   left: -4vw;
 }
