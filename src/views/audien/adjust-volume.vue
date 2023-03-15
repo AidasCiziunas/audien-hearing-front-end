@@ -135,7 +135,7 @@ export default {
 // load some sound
  audioElement =  this.$refs.test;
 
- pannerOptions = {pan: -1};
+ pannerOptions = {pan: 0};
  track = audioCtx.createMediaElementSource(audioElement);
  panner = new StereoPannerNode(audioCtx, pannerOptions);
  gainNode = audioCtx.createGain();
