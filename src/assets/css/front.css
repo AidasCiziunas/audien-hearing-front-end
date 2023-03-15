@@ -373,6 +373,8 @@
     .example {
         width: 100%;
         display: flex;
+        gap: 1rem;
+        justify-content: center;
     }
 
     .ex1 span {
@@ -933,7 +935,7 @@ theme--light.v-divider {
 }
 
 .example label {
-    margin-right: 20px;
+    /* margin-right: 20px; */
     display: inline-block;
     cursor: pointer;
 }

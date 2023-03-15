@@ -71,6 +71,9 @@ export default {
 };
 </script>
 <style scoped>
+.example label {
+    margin-right: 20px;
+}
 @media only screen and (min-width: 401px) and (max-width: 800px) {
   .ex1 span {
     display: block;
@@ -79,13 +82,14 @@ export default {
     background: #1f2f40;
     border-radius: 5px;
     width: 38vw !important;
-    height: 18vh !important;
+    /* height: 18vh !important; */
     padding-top: 27px !important;
     position: relative;
     border-radius: 10px;
     -webkit-transition: all 0.25s linear;
     transition: all 0.25s linear;
     text-align: center;
+    min-width: 150px;
   }
   .ex1 span p {
     font-family: "Lato";
@@ -110,7 +114,7 @@ export default {
   -ms-flex-pack: justify;
   justify-content: space-between;
   /* width: 34vw; */
-  max-width: 39vw;
+  /* max-width: 39vw; */
   min-width: 26vw;
   margin-left: 10.6vw;
   margin-right: auto;
@@ -195,5 +199,13 @@ export default {
   /* #FFFFFF */
 
   color: #ffffff;
+}
+@media only screen and (max-width: 800px) {
+  .radio-content {
+    margin: 0;
+  }
+  .example label {
+    margin-right: 0;
+  }
 }
 </style>
