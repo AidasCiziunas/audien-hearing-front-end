@@ -31,7 +31,7 @@
           <v-btn
             class="warning-button mt-2"
             @click="$router.push('/aid-simulator')"
-            >Hear the benefit of a hearing aid
+            >Next Step
             <img class="ml-2" :src="require('@/assets/media/arrow-right.png')"
           /></v-btn>
         </div>
@@ -77,6 +77,11 @@ export default {
   width: 27vw;
   margin-left: 11vw;
   margin-right: auto;
+}
+.audien-title p {
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 20px;
 }
 @media only screen and (min-width: 801px) {
   .audien-title p {

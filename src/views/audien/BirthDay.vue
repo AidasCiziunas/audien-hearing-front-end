@@ -34,10 +34,7 @@
               </v-text-field> -->
               <div class="input-container mt-10">
                 <i class="icon right calendar-icon" v-on="on">
-                  <img
-
-                    :src="require('@/assets/media/date-calendar.png')"
-                  />
+                  <img :src="require('@/assets/media/date-calendar.png')" />
                 </i>
                 <select
                   class="input-field"
@@ -80,9 +77,7 @@
                type="year" no-title scrollable>
               <v-spacer></v-spacer>
               <v-btn flat color="primary" @click="menu = false">Cancel</v-btn>
-              <v-btn flat color="primary" @click="$refs.menu.save(date)"
-                >OK</v-btn
-              >
+              <v-btn flat color="primary" @click="$refs.menu.save(date)">OK</v-btn>
             </v-date-picker>
           </v-menu>
         </div>
@@ -98,10 +93,9 @@
                 <p class="mb-2">Why ask my birth year?</p>
 
                 <span
-                  >Having this information adds critical context for the
-                  accuracy of your hearing screener results, as hearing loss
-                  levels vary by age. This hearing screener is only designed for
-                  users over the age of 18.</span
+                  >Having this information adds critical context for the accuracy of your
+                  hearing screener results, as hearing loss levels vary by age. This
+                  hearing screener is only designed for users over the age of 18.</span
                 >
               </div>
             </div>
@@ -117,7 +111,7 @@
         </div>
       </div>
       <div class="back-office-page mobile-right right-side">
-        <div class="calendar">
+        <div class="calendar2">
           <img :src="require('@/assets/media/calendar.png').default" />
         </div>
       </div>
@@ -154,6 +148,14 @@ export default {
 };
 </script>
 <style scoped>
+.calendar2 {
+  position: relative;
+  margin-left: 20px;
+}
+.calendar2 img {
+  /* width: 70%; */
+  width: 37vw;
+}
 .footer {
   height: 100px;
   background: #07121c;
@@ -177,20 +179,19 @@ export default {
   /* height: 7vh; */
 }
 .icon {
- 
-    padding-left: 4px;
-    padding-right: 4px;
-    padding-top: 9px;
-    padding-bottom: 9px;
-    /* padding: 5px; */
-    background: #102132;
-    color: white;
-    min-width: 37px;
-    text-align: center;
-    width: 69px;
-    border-top: 2px solid #1f2f40;
-    border-bottom: 2px solid #1f2f40;
-    border-left: 2px solid #1f2f40;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-top: 9px;
+  padding-bottom: 9px;
+  /* padding: 5px; */
+  background: #102132;
+  color: white;
+  min-width: 37px;
+  text-align: center;
+  width: 69px;
+  border-top: 2px solid #1f2f40;
+  border-bottom: 2px solid #1f2f40;
+  border-left: 2px solid #1f2f40;
 }
 .left {
   background: #1f2f40;
@@ -241,12 +242,28 @@ input:focus {
   justify-content: center;
   align-items: center;
 }
+@media screen and (min-width: 801px) {
+  .calendar2 {
+    left: -9vh;
+    top: 15vh;
+  }
+}
 @media screen and (max-width: 800px) {
   .mobile-right {
     min-height: 46vh;
   }
-  /* .align-step-button .warning-button {
-    bottom: 22vh;
-  } */
+  .calendar2 {
+    position: relative;
+    top: -5vw;
+  }
+  .calendar2 img {
+    max-width: 500px;
+    width: 80vw;
+    -webkit-mask-image: -webkit-gradient(linear, left 10%, 
+        left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
+  }
+  .input-container {
+    justify-content: center;
+  }
 }
 </style>

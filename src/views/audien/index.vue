@@ -81,6 +81,9 @@ export default {
 };
 </script>
 <style scoped>
+.banner-with-person > .banner-image {
+  left: -2vw;
+}
 @media only screen and (min-width: 801px) {
   .start-btn-sm {
     display: none;
@@ -201,7 +204,11 @@ export default {
   }
 }
 @media only screen and (min-width: 401px) and (max-width: 800px) {
-  
+  .audien-title h1 {
+    font-size: 48px !important;
+    line-height: 56px !important;
+    margin-bottom: 20px;
+  }
   .button-start{
     /* position: absolute;
     left: 7% !important; */
@@ -306,8 +313,8 @@ export default {
 }
 
 .get-start {
-  width: 26vh;
-  height: 26vh;
+  width: 22vh;
+  height: 22vh;
   position: relative;
   /* left: 3.3vh; */
   /* top: 2.9vh; */
@@ -347,7 +354,7 @@ export default {
   /* bottom: 24px !important; */
   /* top: 3vh; */
   /* left: 1.5vw; */
-  padding: 2rem;
+  padding: 1.7rem;
   background: -webkit-gradient(
     linear,
     right top,
@@ -372,7 +379,7 @@ export default {
   /* bottom: 24px; */
   /* top: 5vh; */
   /* left: 6vw; */
-  padding: 2rem;
+  padding: 1.7em;
   background: -webkit-gradient(
     linear,
     right top,
@@ -383,10 +390,9 @@ export default {
   background: linear-gradient(270deg, #ffffff14 26%, rgb(255 180 4 / 0%) 151%);
 }
 .banner-button-start {
-  left: -10vw;
   position: absolute; 
-  top: 16vw;
-  left: -14vw;
+  top: 23vh;
+  left: -17vh;
 }
 .footer {
   height: 100px;

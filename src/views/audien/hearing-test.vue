@@ -25,10 +25,7 @@
               @click="nextSoundPlayed(); played=!played"
               style="width: 40%"
             >
-              <img
-                class="mr-2"
-                :src="require('@/assets/media/play-circle.png')"
-              />Start
+              <img class="mr-2" :src="require('@/assets/media/play-circle.png')" />Start
             </v-btn>
              <v-btn
               v-if="played"
@@ -42,14 +39,11 @@
               />Stop
             </v-btn>
             <v-btn
-              class="warning-button mt-10"
+              class="warning-button warning-button__ear mt-10"
               @click="$router.push('/instruction')"
-              style="width: 70%; background: #403e29 !important"
+              style="width: 70%"
             >
-              <img
-                class="mr-2"
-                :src="require('@/assets/media/alert-circle.png')"
-              />Can't Hear
+              <img class="mr-2" :src="require('@/assets/media/user-ear.png')" />Left ear
             </v-btn>
           </div>
         </div>
@@ -76,8 +70,23 @@
             </v-slider>
           </div>
         </div>
-        
-        <div class="align-step-button mt-16">
+        <!-- <div class="d-flex justify-space-between" style="margin-left: 10.6vw; margin-right: auto; width: 30vw;">
+          <v-btn
+            style="width: 48%"
+            class="warning-button-outline mt-5"
+            @click="$router.push('/instruction')"
+            color="#ffb404"
+            outlined
+          >-</v-btn>
+          <v-btn
+            style="width: 48%"
+            class="warning-button-outline mt-5"
+            @click="$router.push('/instruction')"
+            color="#ffb404"
+            outlined
+          >+</v-btn>
+        </div> -->
+        <div class="align-step-button">
           <v-btn
             class="warning-button-outline mr-2 mt-5"
             @click="$router.push('/instruction')"
@@ -106,6 +115,16 @@
           </v-btn>
              <audio ref="test" id="audio" :src="hearingTest[currentPlayedIndex].sound.default" crossorigin="anonymous" ></audio>
         </div>
+        <div class="mobile-only">
+          <div class="mobile-only__content">
+            <v-btn class="warning-button mt-5" style="width: 47%" @click="decreaseVol"
+              ><img class="ml-2" :src="require('@/assets/media/icon-minus.png')" />
+            </v-btn>
+            <v-btn class="warning-button mt-5" style="width: 47%" @click="increaseVol"
+              ><img class="ml-2" :src="require('@/assets/media/icon-plus.png')"
+            /></v-btn>
+          </div>
+        </div>
       </div>
       <div ref="myBtn" class="back-office-page mobile-right right-side">
         <headphone />
@@ -121,6 +140,7 @@ import headerVue from '@/components/audien/header.vue';
 import { mapState } from 'vuex';
 import apiClient from '@/config/axios';
 let audioElement,audioCtx,pannerOptions,gainNode,track,AudioContext,panner
+
 export default {
   components: {
     headphone,
@@ -309,16 +329,16 @@ track.connect(gainNode).connect(panner).connect(audioCtx.destination);
      gainNode.gain.value = this.volume/100;
    
     },
+    decreaseVol() {
+      this.slider1 = this.slider1 - 5;
+    },
+    increaseVol() {
+      this.slider1 = this.slider1 + 5;
+    },
    }
 };
 </script>
 <style>
-.v-slider__thumb {
-  border-radius: 2px;
-  height: 32px;
-  width: 10px;
-  z-index: 1;
-}
 .v-slider__thumb::after {
   display: none;
 }
@@ -327,7 +347,13 @@ track.connect(gainNode).connect(panner).connect(audioCtx.destination);
 }
 </style>
 <style scoped>
-.volume{
+>>> .v-slider__thumb {
+  border-radius: 2px;
+  height: 32px;
+  width: 10px;
+  z-index: 1;
+}
+.volume {
   /* z-index: -11; */
 }
 
@@ -449,6 +475,7 @@ track.connect(gainNode).connect(panner).connect(audioCtx.destination);
   margin-right: auto;
   display: flex;
   gap: 1vw; */
+  margin-top: 64px;
 }
 .theme--light.v-icon {
   color: #fff;
@@ -460,12 +487,7 @@ track.connect(gainNode).connect(panner).connect(audioCtx.destination);
   top: 50%;
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
-  background: linear-gradient(
-    90deg,
-    #ff3b16 0%,
-    #ffe600 50%,
-    #4cbc25 100%
-  ) !important;
+  background: linear-gradient(90deg, #ff3b16 0%, #ffe600 50%, #4cbc25 100%) !important;
   border-radius: 5px;
   z-index: 1;
 }
@@ -488,5 +510,41 @@ track.connect(gainNode).connect(panner).connect(audioCtx.destination);
   min-width: 26vw;
   margin-left: 10.6vw;
   margin-right: auto;
+}
+.warning-button__ear {
+  background: #1f2f40 !important;
+}
+.warning-button__ear img {
+  color: #fff;
+}
+>>> .warning-button__ear .v-btn__content {
+  color: #fff !important;
+}
+
+@media only screen and (max-width: 800px) {
+  .align-step-button {
+    display: none;
+  }
+  .mobile-only {
+    padding-right: 15px;
+    padding-left: 15px;
+    position: absolute;
+    bottom: 40px;
+
+    z-index: 3;
+    width: 100vw;
+
+    display: flex;
+    justify-content: center;
+  }
+  .mobile-only__content {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+@media only screen and (min-width: 801px) {
+  .mobile-only {
+    display: none;
+  }
 }
 </style>

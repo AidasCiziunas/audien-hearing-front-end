@@ -37,11 +37,13 @@
             <img :src="require('@/assets/media/arrow-right-1.png')"
           /></v-btn>
 
-          <v-btn class="warning-button mt-2" @click="$router.push('/finish')"
-            >Hear the benefit of a hearing aid
-
-            <img class="ml-2" :src="require('@/assets/media/arrow-right.png')"
-          /></v-btn>
+          <v-btn 
+            class="warning-button mt-2" 
+            @click="$router.push('/finish')"
+          >
+            Next Step
+            <img class="ml-2" :src="require('@/assets/media/arrow-right.png')" />
+          </v-btn>
         </div>
       </div>
       <div class="back-office-page mobile-right right-side">
@@ -69,6 +71,9 @@ export default {
 };
 </script>
 <style scoped>
+.example label {
+    margin-right: 20px;
+}
 @media only screen and (min-width: 401px) and (max-width: 800px) {
   .ex1 span {
     display: block;
@@ -77,13 +82,14 @@ export default {
     background: #1f2f40;
     border-radius: 5px;
     width: 38vw !important;
-    height: 18vh !important;
+    /* height: 18vh !important; */
     padding-top: 27px !important;
     position: relative;
     border-radius: 10px;
     -webkit-transition: all 0.25s linear;
     transition: all 0.25s linear;
     text-align: center;
+    min-width: 150px;
   }
   .ex1 span p {
     font-family: "Lato";
@@ -108,7 +114,7 @@ export default {
   -ms-flex-pack: justify;
   justify-content: space-between;
   /* width: 34vw; */
-  max-width: 39vw;
+  /* max-width: 39vw; */
   min-width: 26vw;
   margin-left: 10.6vw;
   margin-right: auto;
@@ -193,5 +199,13 @@ export default {
   /* #FFFFFF */
 
   color: #ffffff;
+}
+@media only screen and (max-width: 800px) {
+  .radio-content {
+    margin: 0;
+  }
+  .example label {
+    margin-right: 0;
+  }
 }
 </style>

@@ -125,7 +125,6 @@ export default {
     suspendNext(){
       apiClient.post("sound-frequency",{frequency:(this.slider1/100)*10}).then((response)=>{
 	console.log(audioCtx.state);
-
   this.$router.push('/instruction');
   })
     },
@@ -142,7 +141,7 @@ export default {
  gainNode = audioCtx.createGain();
 track.connect(gainNode).connect(panner).connect(audioCtx.destination);
      gainNode.gain.value = this.volume/100;
-    
+ 
       audioElement.play()
     },
     toggleTooltip() {

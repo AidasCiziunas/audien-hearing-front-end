@@ -5,7 +5,7 @@
     <div class="flex-align flex-mobile-align">
       <div class="left-side mobile-left mobile-left-side">
         <div class="audien-title">
-          <span class="mb-5 steps">STEP 6 of 20</span>
+          <span class="mb-5 steps">STEP 17 of 20</span>
           <h1 class="mt-5">Thank you for completing the hearing screener</h1>
 
           <p class="mt-5">
@@ -113,7 +113,7 @@
         </div>
         <div class="align-step-button">
           <v-btn
-            class="warning-button-outline mr-5 mt-5"
+            class="warning-button-outline mr-5"
             @click="$router.push('/hearing-test')"
             color="#ffb404"
             outlined
@@ -193,6 +193,9 @@ export default {
 };
 </script>
 <style scoped>
+.banner-with-person > .banner-image {
+  left: -4vw;
+}
 @media only screen and (min-width: 301px) and (max-width: 800px) {
   .left-side {
     /* height: 100vh; */
@@ -446,7 +449,7 @@ export default {
     color: #ffffff;
   }
 }
-@media only screen and (min-width: 301px) and (max-width: 800px) {
+@media only screen and (max-width: 800px) {
   .align-step-button button.warning-button {
     position: relative;
     bottom: inherit;
@@ -455,6 +458,9 @@ export default {
   /* .personal-info {
     margin-bottom: 20px;
   } */
+  .large-screen {
+    display: none;
+  }
 }
 
 </style>
