@@ -109,23 +109,24 @@
     top: -30px;
   }
   .banner-button {
-    top: 8vw;
+    top: 13vw;
     bottom: inherit;
   }
   .gradient-one {
-    padding: 3vw;
+    padding: 4vw;
   }
   .gradient-two {
-    padding: 3vw;
+    padding: 4vw;
   }
   .get-start {
-    height: 27vw;
-    width: 27vw;
+    height: 34vw;
+    width: 34vw;
+    display: block;
   }
 
   .get-start img {
-    height: 13vw;
-    width: 13vw;
+    height: 15vw;
+    width: 15vw;
   }
   .headphone-image {
     -webkit-mask-image: -webkit-gradient(linear, left 50%, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));

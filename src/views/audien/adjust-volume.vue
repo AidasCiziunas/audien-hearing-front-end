@@ -260,18 +260,7 @@ export default {
     width: 80%;
   }
 
-  .overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    background: rgb(0,0,0,0.9);
-    height: 100vh;
-    z-index: 1;
-  }
-  .overlay.show {
-    display: block;
-  }
+
   .media {
     margin: 0 20px;
   }

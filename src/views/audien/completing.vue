@@ -5,7 +5,7 @@
     <div class="flex-align flex-mobile-align">
       <div class="left-side mobile-left mobile-left-side">
         <div class="audien-title">
-          <span class="mb-5 steps">STEP 6 of 20</span>
+          <span class="mb-5 steps">STEP 17 of 20</span>
           <h1 class="mt-5">Thank you for completing the hearing screener</h1>
 
           <p class="mt-5">

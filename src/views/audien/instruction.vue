@@ -10,7 +10,7 @@
             This test is designed to find the faintest sound you can hear. Use the <b style="font-weight: 700">+/-</b> buttons to adjust the volume then click “<b style="font-weight: 700">Next</b>” when you reach the faintest volume you can hear.
           </p>
         </div>
-        <div class="align-step-button mt-16">
+        <div class="align-step-button">
           <v-btn
             class="warning-button-outline mr-5 mt-5"
             @click="$router.push('/adjust-volume')"
@@ -80,6 +80,9 @@ export default {
     line-height: 4vh;
     color: #ffffff;
   }
+  .align-step-button {
+    margin-top: 64px;
+  }
 }
 @media only screen and (max-width: 800px) {
   .audien-title p {
@@ -87,6 +90,7 @@ export default {
     font-size: 18px;
     line-height: 30px;
   }
+
 }
 
 </style>

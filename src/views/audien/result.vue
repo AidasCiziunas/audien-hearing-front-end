@@ -1,5 +1,41 @@
 <template>
   <div>
+    <div 
+      class="overlay"
+      :class="{ show: isTooltipVisible }"
+      @click="toggleTooltip"
+    ></div>
+    <div
+      class="mobile-tooltip"
+      :style="{ display: isTooltipVisible ? 'block' : 'none' }"
+    >
+      <div class="content">
+        <p class="mobile-tooltip__header mb-5 mx-16"> 
+          <img
+            class="tooltip-close"
+            @click="toggleTooltip"
+            :src="require('@/assets/media/arrow-left.png')"
+          />
+           Hearing levels
+        </p>
+
+        <div class="text-center">
+          <div class="mb-10">
+            <h3 style="color: #4EBD25;">Your Hearing is OK</h3>
+            <span>You can understand conversations <br> whe there is backgroung noise</span>
+          </div>
+          <div class="mb-10">
+            <h3 style="color: #FFB404;">Some Difficulty Hearing</h3>
+            <span>You may have difficulty understanding <br> conversations when there is background noise</span>
+          </div>
+          <div class="mb-10">
+            <h3 style="color: #FF3B17">Significant Hearing Difficulties</h3>
+            <span>You may have significant difficulties understanding <br> speech when a person is talking at a normal level <br> either in a quiet or noisy environment</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
     <headerComponent />
     <div class="flex-align flex-mobile-align">
       <div class="left-side mobile-left mobile-left-side">
@@ -39,7 +75,7 @@
             </div>
 
             <div class="help-button">
-              <v-btn color="#1F2F40;" class="mr-2" height="60" depressed>
+              <v-btn color="#1F2F40;" class="mr-2" height="60" @click="toggleTooltip" depressed>
                 <img :src="require('@/assets/media/help-circle.png')" />
               </v-btn>
             </div>
@@ -165,8 +201,14 @@ export default {
           calories: 518,
         },
       ],
+      isTooltipVisible: false,
     };
   },
+  methods: {
+    toggleTooltip() {
+      this.isTooltipVisible = !this.isTooltipVisible
+    }
+  }
 };
 </script>
 <style scoped>
