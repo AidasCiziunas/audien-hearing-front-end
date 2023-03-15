@@ -60,7 +60,7 @@ if (process.env.VUE_APP_GOOGLE_ANALYTICS != '')
   Vue.use(
     VueGtag,
     {
-      appName: 'InteleTravel',
+      appName: 'Audien',
       pageTrackerScreenviewEnabled: true,
       config: {
         id: process.env.VUE_APP_GOOGLE_ANALYTICS,
