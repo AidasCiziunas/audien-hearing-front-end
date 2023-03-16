@@ -12,7 +12,7 @@
       :class="{ 'finish-page': isFinish }"
     >
       <div class="logo-align mt-10">
-        <v-btn class="warning-button">
+        <v-btn   @click="openSite" class="warning-button">
           <img :src="require('@/assets/media/lock.png')" />
           <span class="ml-2">Shop all hearing solutions</span>
         </v-btn>
@@ -28,7 +28,7 @@
 
         <v-btn
           class="warning-button-outline mr-5 mt-10"
-          @click="$router.push('/completing-hearing')"
+          @click="openSite"
           color="#ffb404"
           :rounded="true"
           outlined
@@ -47,6 +47,11 @@ export default {
       return /(finish)$/.test(this.$route.path)
     },
   },
+  methods:{
+    openSite(){
+          window.open('https://audienhearing.com/', '_blank', 'noreferrer');
+    }
+  }
 };
 </script>
 <style scoped>
