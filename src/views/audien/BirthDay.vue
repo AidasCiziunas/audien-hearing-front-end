@@ -139,13 +139,16 @@ export default {
   },
 
   data: () => ({
-    date: 2003,
+    date: null,
     menu: false,
     modal: false,
-    years: ['1987','1988','1989','1990','1991','1992','1993','1994','1995','1996','1997','1998','1999','2000','2001','2002','2003']
+    years: []
   }),
   created(){
-   this.date=this.$store.state.HearingTest.dataLog.birth_year;
+    for (var i = 1920; i <= 2020; i++) {
+      this.years.push(i);
+    }
+    this.date = this.years.at(-1)
   },
   methods:{
     submitYear(){
