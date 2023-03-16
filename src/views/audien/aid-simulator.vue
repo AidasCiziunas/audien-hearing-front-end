@@ -48,7 +48,7 @@
         </div>
       </div>
       <div ref="myBtn" class="back-office-page mobile-right right-side">
-        <headephone />
+        <headephone isPlaying />
       </div>
     </div>
     <footerVue />

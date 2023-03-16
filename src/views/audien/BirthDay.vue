@@ -36,7 +36,19 @@
                 <i class="icon right calendar-icon" v-on="on">
                   <img :src="require('@/assets/media/date-calendar.png')" />
                 </i>
-                <select
+                <v-select
+                  class="year-select"
+                  :items="years"
+                  v-model="date"
+                  background-color="#102132"
+                  height="65"
+                  color="#FFB404"
+                  solo
+                  flat
+                >
+                
+                </v-select>
+                <!-- <select
                   class="input-field"
                   type="text"
                   v-model="date"
@@ -60,12 +72,8 @@
                  <option value="1989">1989</option>
                 <option value="1988">1988</option>
                 <option value="1987">1987</option>
-                </select>
+                </select> -->
                 <i class="icon left arrow-down-icon">
-                  <img
-
-                    :src="require('@/assets/media/arrow-down.png')"
-                  />
                 </i>
               </div>
             </template>
@@ -134,6 +142,7 @@ export default {
     date: 2003,
     menu: false,
     modal: false,
+    years: ['1987','1988','1989','1990','1991','1992','1993','1994','1995','1996','1997','1998','1999','2000','2001','2002','2003']
   }),
   created(){
    this.date=this.$store.state.HearingTest.dataLog.birth_year;
@@ -278,5 +287,24 @@ input:focus {
   .input-container {
     justify-content: center;
   }
+}
+>>> .v-select__selection {
+  color: white;
+}
+.year-select {
+  border-top: 2px solid #1f2f40;
+  border-bottom: 2px solid #1f2f40;
+}
+>>> .year-select .v-input__icon {
+  position: relative;
+  left: 44px;
+  color: #FFB404;
+}
+>>> .year-select .v-input__icon .v-icon::before {
+  color: #FFB404;
+  content: "\F634"
+}
+>>> .year-select .v-input__slot {
+  padding: 0;
 }
 </style>
