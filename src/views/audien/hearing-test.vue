@@ -29,20 +29,22 @@
             </v-btn>
              <v-btn
               v-if="played"
-              class="warning-button mt-10"
+              class="warning-button-outline mt-10 pause-button"
+              color="#ffb404"
               @click="play(); played=!played"
               style="width: 40%"
+              outlined
             >
               <img
                 class="mr-2"
-                :src="require('@/assets/media/play-circle.png')"
-              />Stop
+                :src="require('@/assets/media/pause-circle.png')"
+              />Pause
             </v-btn>
             <v-btn
               class="warning-button warning-button__ear mt-10"
              
               :disabled="unplayed.length>=3"
-              style="width: 70%"
+              style="width: 60%"
             >
               <img class="mr-2" :src="require('@/assets/media/user-ear.png')" />Left ear 
             </v-btn>
@@ -146,7 +148,7 @@
         </div>
       </div>
       <div ref="myBtn" class="back-office-page mobile-right right-side">
-        <headphone />
+        <headphone :isPlaying="played" />
       </div>
     </div>
     <footerVue />
@@ -537,6 +539,9 @@ track.connect(gainNode).connect(panner).connect(audioCtx.destination);
 }
 >>> .pause-button .v-btn__content {
   color: #fff !important;
+}
+>>> .pause-button {
+  height: inherit !important;
 }
 
 @media only screen and (max-width: 800px) {
