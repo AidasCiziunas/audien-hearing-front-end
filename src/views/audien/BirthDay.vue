@@ -302,7 +302,7 @@ input:focus {
 }
 >>> .year-select .v-input__icon .v-icon::before {
   color: #FFB404;
-  content: "\F634"
+  content: "\F140"
 }
 
 >>> .year-select > .v-input__control > .v-input__slot {
