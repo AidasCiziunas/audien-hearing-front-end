@@ -40,12 +40,30 @@
                 :src="require('@/assets/media/pause-circle.png')"
               />Pause
             </v-btn>
+           
             <v-btn
+              v-if="selectedEar==-1"
               class="warning-button warning-button__ear mt-10"
              
               
               style="width: 60%">
               <img class="mr-2" :src="require('@/assets/media/user-ear.png')" />Left ear 
+            </v-btn>
+            <v-btn
+              v-if="selectedEar==0"
+              class="warning-button warning-button__ear mt-10"
+             
+              
+              style="width: 60%">
+              <img class="mr-2" :src="require('@/assets/media/both-ear.png')" />both ear 
+            </v-btn>
+            <v-btn
+              v-if="selectedEar==1"
+              class="warning-button warning-button__ear mt-10"
+             
+              
+              style="width: 60%">
+              <img class="mr-2" :src="require('@/assets/media/left-ear.png')" />right ear 
             </v-btn>
           </div>
         </div>
@@ -274,6 +292,19 @@ export default {
       return this.$store.state.HearingTest.testSounds.filter((item)=>{
         return item.played == true;
       })
+    },
+    selectedEar(){
+      if(this.$store.state.HearingTest && this.$store.state.HearingTest.dataLog && this.$store.state.HearingTest.dataLog.ear){
+        if(this.$store.state.HearingTest.dataLog.ear=='left'){
+          return -1
+        }
+        if(this.$store.state.HearingTest.dataLog.ear=='both'){
+          return 0
+        }
+        if(this.$store.state.HearingTest.dataLog.ear=='right'){
+          return 1
+        }
+      }
     }
   },
     watch: {
@@ -352,7 +383,7 @@ let seletecdSound = this.audios.slice(0, 8).map(function () {
     },
      refreshData() {
        AudioContext = window.AudioContext || window.webkitAudioContext;
- audioCtx = new AudioContext();
+  audioCtx = new AudioContext();
 
 // load some sound
  audioElement =  this.$refs.test;
@@ -362,7 +393,7 @@ let seletecdSound = this.audios.slice(0, 8).map(function () {
  panner = new StereoPannerNode(audioCtx, pannerOptions);
  gainNode = audioCtx.createGain();
 track.connect(gainNode).connect(panner).connect(audioCtx.destination);
-     gainNode.gain.value = this.volume/100;
+      	panner.pan.value = this.selectedEar;
    
     },
    }
