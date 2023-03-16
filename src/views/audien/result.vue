@@ -156,7 +156,7 @@ export default {
   },
   data() {
     return {
-      slider1: 0,
+     
       yourValue: null,
       premobileval: null,
       desserts: [
@@ -205,7 +205,13 @@ export default {
     };
   },
   mounted(){
-this.slider1=this.$store.state.HearingTest.dataLog.test_result.score*10;
+  },
+  computed:{
+   slider1(){
+    if(this.$store.state && this.$store.state.HearingTest && this.$store.state.HearingTest.dataLog && this.$store.state.HearingTest.dataLog.test_result){
+      return this.$store.state.HearingTest.dataLog.test_result.score*10;
+    } 
+   }
   },
   methods: {
     toggleTooltip() {

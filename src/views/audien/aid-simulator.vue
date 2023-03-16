@@ -44,7 +44,7 @@
             Next Step
             <img class="ml-2" :src="require('@/assets/media/arrow-right.png')" />
           </v-btn>
-           <audio ref="test" id="audio" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/858/outfoxing.mp3" crossorigin="anonymous" ></audio>
+           <audio v-if="audio" ref="test" id="audio" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/858/outfoxing.mp3" crossorigin="anonymous" ></audio>
         </div>
       </div>
       <div ref="myBtn" class="back-office-page mobile-right right-side">
@@ -59,7 +59,7 @@ import footerVue from "../../components/audien/footer.vue";
 import headerVue from "../../components/audien/header.vue";
 import headephone from "./headephone2.vue";
 
-let audioElement,audioCtx,pannerOptions,gainNode,track,AudioContext,panner
+let audioElement,audioCtx,pannerOptions,gainNode,track,AudioContext,panner,hissGainParam
 export default {
   components: {
     headephone,
@@ -82,23 +82,33 @@ export default {
   mounted(){
     this.$refs.myBtn.click()
    
-     this.refreshData()
+    //  this.refreshData()
     setInterval(this.refreshData, 5000)
   },
   data() {
     return {
       ear: "off",
+      audio:false
+
     };
   },
   methods:{
    
-     refreshData() {
-     
-       AudioContext = window.AudioContext || window.webkitAudioContext;
+   async  refreshData() {
+    this.audio =true;
+     try {
+       AudioContext = await window.AudioContext || window.webkitAudioContext;
+    } catch (error) {
+      window.alert(
+        `Sorry, but your browser doesn't support the Web Audio API!`
+    );
+    }
+if (AudioContext !== undefined) {
+      
  audioCtx = new AudioContext();
 
 // load some sound
- audioElement =  this.$refs.test;
+ audioElement = await  this.$refs.test;
 
  pannerOptions = {pan: -1};
  track = audioCtx.createMediaElementSource(audioElement);
@@ -108,6 +118,7 @@ track.connect(gainNode).connect(panner).connect(audioCtx.destination);
       	panner.pan.value = -1;
        
       audioElement.play()
+}
         
     }
   }

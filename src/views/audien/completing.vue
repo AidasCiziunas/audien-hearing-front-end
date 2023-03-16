@@ -173,13 +173,13 @@ export default {
   },
   methods:{
     submitUser(){
-      apiClient.post("user",{
+      apiClient.post("user?id="+this.$store.state.HearingTest.ID,{
          "first_name":this.firstName,
          "last_name":this.lastName,
          "email":this.email,
          "contact_number":this.contactNumber
       }).then((response)=>{
-        apiClient.post("complete-test",
+        apiClient.post("complete-test?id="+this.$store.state.HearingTest.ID,
         {
            "test":"complete"
         }).then((response)=>{

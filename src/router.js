@@ -133,11 +133,16 @@ const router = new Router({
 });
 
 router.beforeEach((to, from, next)=>{
-  apiClient.get("user-added-data",{}).then((response)=>{
+  console.log(store.state.HearingTest.ID);
+  if(store.state.HearingTest.ID){
+   
+  apiClient.get("user-added-data?id="+store.state.HearingTest.ID,{}).then((response)=>{
     console.log(response);
     store.dispatch('maintainHistory',response.data.data)
     next()
   })
+  console.log("3232323");
+}
   next()
   
 })
