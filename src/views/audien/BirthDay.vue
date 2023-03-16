@@ -149,6 +149,15 @@ export default {
   },
   methods:{
     submitYear(){
+     let year= new Date().getFullYear();
+     let yearMin = year-18;
+     console.log(yearMin);
+     if(yearMin<=this.date){
+      this.$awn.alert('User Ager must be 18+', {labels:{alert: 'Age Restriction'}})
+
+       return false;
+     }
+       
       if(!this.$store.state.HearingTest.dataLog){
       apiClient.post('birth-year',{
         birth_year:this.date
