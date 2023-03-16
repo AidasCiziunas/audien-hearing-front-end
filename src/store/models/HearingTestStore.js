@@ -2,7 +2,8 @@ const state = {
   // search filter responses: needed to use at front pages
   testSounds: [],
   currentPlayedIndex:0,
-  dataLog:null
+  dataLog:null,
+  ID:null
   
 };
 
@@ -28,7 +29,11 @@ const mutations = {
   reset(state){
     state.dataLog=null;
     state.currentPlayedIndex=0;
-    state.testSounds=[]
+    state.testSounds=[],
+    state.ID=null
+  },
+  setId(state,id){
+    state.ID=id;
   }
 
  
@@ -53,6 +58,9 @@ const actions = {
   },
   resetStore({commit}){
     commit('reset');
+  },
+  testId({commit},testID){
+    commit('setId',testID);
   }
   
  

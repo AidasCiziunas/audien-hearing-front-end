@@ -4,7 +4,7 @@
     <div class="flex-align flex-mobile-align">
       <div class="left-side mobile-left mobile-left-side">
         <div class="audien-title">
-          <span class="mb-5 steps">STEP 6 of 20</span>
+          <span class="mb-5 steps">STEP {{6+playedSound.length}} of 20</span>
           <h1 class="mt-5">Hearing Test</h1>
   
           <p class="mt-5">
@@ -43,9 +43,8 @@
             <v-btn
               class="warning-button warning-button__ear mt-10"
              
-              :disabled="unplayed.length>=3"
-              style="width: 60%"
-            >
+              
+              style="width: 60%">
               <img class="mr-2" :src="require('@/assets/media/user-ear.png')" />Left ear 
             </v-btn>
           </div>
@@ -78,6 +77,7 @@
                 class="warning-button-outline mt-5" 
                 color="#ffb404" 
                 style="width: 47%"
+                @click="decrement"
                 outlined
               ><img :src="require('@/assets/media/icon-minus-orange.png')" 
               /></v-btn>
@@ -85,6 +85,7 @@
                 class="warning-button-outline mt-5" 
                 color="#ffb404" 
                 style="width: 47%"
+                @click="increment"
                 outlined
               ><img :src="require('@/assets/media/icon-plus-orange.png')" 
               /></v-btn>
@@ -268,6 +269,11 @@ export default {
       return this.$store.state.HearingTest.testSounds.filter((item)=>{
         return item.played == false;
       })
+    },
+     playedSound(){
+      return this.$store.state.HearingTest.testSounds.filter((item)=>{
+        return item.played == true;
+      })
     }
   },
     watch: {
@@ -294,6 +300,14 @@ let seletecdSound = this.audios.slice(0, 8).map(function () {
     setInterval(this.refreshData, 5000)
   },
    methods:{
+    decrement(){
+       this.volume-=10
+    },
+    increment(){
+    
+       this.volume +=10
+        
+    },
     nextSoundPlayed(){
       console.log(this.currentPlayedIndex);
        this.$store.dispatch('nextSoundPlayed',this.currentPlayedIndex)
@@ -308,9 +322,9 @@ let seletecdSound = this.audios.slice(0, 8).map(function () {
     NextPlay(){
      let volume = (this.volume/100)*10;
      let soundId = this.hearingTest[this.currentPlayedIndex].id;
-     apiClient.post("attempt-test",{
+     apiClient.post("attempt-test?id="+this.$store.state.HearingTest.ID,{
       "sound_id": soundId,
-      "sound_volume": volume
+      "sound_volume": volume==0?1:this.volume
      }).then((response)=>{
 
      ;
@@ -322,7 +336,6 @@ let seletecdSound = this.audios.slice(0, 8).map(function () {
    
     },
     play(){
-      console.clear()
       console.log(this.played);
       if(this.played===false){
         console.log('@@@@')
@@ -356,6 +369,7 @@ track.connect(gainNode).connect(panner).connect(audioCtx.destination);
 };
 </script>
 <style>
+
 .v-slider__thumb::after {
   display: none;
 }
@@ -577,5 +591,14 @@ track.connect(gainNode).connect(panner).connect(audioCtx.destination);
 }
 .align-content-space-between {
   flex-direction: column;
+}
+.pause >>>.v-btn__content {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 800 !important;
+    font-size: 1.3vh !important;
+    letter-spacing: 0.1em !important;
+    text-transform: uppercase !important;
+    color: #fff !important;
 }
 </style>

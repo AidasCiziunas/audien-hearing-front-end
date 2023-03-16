@@ -153,7 +153,7 @@ export default {
   },
    methods:{
     suspendNext(){
-      apiClient.post("sound-frequency",{frequency:(this.slider1/100)*10}).then((response)=>{
+      apiClient.post("sound-frequency?id="+this.$store.state.HearingTest.ID,{frequency:(this.slider1/100)*10}).then((response)=>{
 	console.log(audioCtx.state);
   this.$router.push('/instruction');
   })

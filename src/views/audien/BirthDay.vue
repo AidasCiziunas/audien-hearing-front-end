@@ -135,13 +135,26 @@ export default {
     menu: false,
     modal: false,
   }),
+  created(){
+   this.date=this.$store.state.HearingTest.dataLog.birth_year;
+  },
   methods:{
     submitYear(){
+      if(!this.$store.state.HearingTest.dataLog){
       apiClient.post('birth-year',{
+        birth_year:this.date
+      }).then((response)=>{
+        console.log(response.data['test-configuration'].id)
+        this.$store.dispatch("testId",response.data['test-configuration'].id)
+        this.$router.push('/best-result')
+      })
+      }else{
+        apiClient.post('birth-year?id='+this.$store.state.HearingTest.dataLog.id,{
         birth_year:this.date
       }).then((response)=>{
        this.$router.push('/best-result')
       })
+      }
       // 
     }
   }

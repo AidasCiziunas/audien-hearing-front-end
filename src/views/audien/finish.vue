@@ -359,6 +359,9 @@ export default {
       isTooltipVisible: false
     };
   },
+  mounted(){
+    this.$store.dispatch('resetStore')
+  },
   methods: {
     resetStore(){
       this.$store.dispatch('resetStore')

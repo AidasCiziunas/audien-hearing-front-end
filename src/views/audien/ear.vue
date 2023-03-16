@@ -131,14 +131,13 @@ export default {
            selectectEar='left'
           }
  
-    apiClient.post("ear",{ear:selectectEar}).then((response)=>{
+    apiClient.post("ear?id="+this.$store.state.HearingTest.ID,{ear:selectectEar}).then((response)=>{
     
        this.$router.push('/adjust-volume')
     })  
    
     },
      refreshData() {
-      console.clear()
        AudioContext = window.AudioContext || window.webkitAudioContext;
  audioCtx = new AudioContext();
 
@@ -158,7 +157,7 @@ track.connect(gainNode).connect(panner).connect(audioCtx.destination);
   },
   data() {
     return {
-      ear: 1,
+      ear: -1,
       audios:[
         {
           id:1,
