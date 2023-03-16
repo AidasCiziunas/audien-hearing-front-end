@@ -30,7 +30,7 @@
           class="warning-button-outline mr-5 mt-10"
           @click="$router.push('/completing-hearing')"
           color="#ffb404"
-          rounded="pill"
+          :rounded="true"
           outlined
         >
           <img :src="require('@/assets/media/cart.png')" />

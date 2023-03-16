@@ -65,7 +65,7 @@
       </div>
        <div  ref="myBtn" class="back-office-page mobile-right right-side">
      
-        <headephone />
+        <headephone isPlaying />
       </div>
     </div>
     <footerVue />
@@ -269,5 +269,12 @@ track.connect(gainNode).connect(panner).connect(audioCtx.destination);
 }
 .banner-image img {
   height: 54vh;
+}
+@media only screen and (max-width: 800px) {
+  .radio-content {
+    min-width: inherit;
+    max-width: inherit;
+    margin: 0;
+  }
 }
 </style>

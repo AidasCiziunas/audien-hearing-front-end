@@ -1,5 +1,38 @@
 <template>
   <div>
+    <div 
+      class="overlay"
+      :class="{ show: isTooltipVisible }"
+      @click="toggleTooltip"
+    ></div>
+    <div
+      class="mobile-tooltip"
+      :style="{ display: isTooltipVisible ? 'block' : 'none' }"
+    >
+      <div class="content">
+        <p class="mobile-tooltip__header mb-5 mx-16"> 
+          <img
+            class="tooltip-close"
+            @click="toggleTooltip"
+            :src="require('@/assets/media/arrow-left.png')"
+          />
+           What is a comfortable listening level?
+        </p>
+
+        <div class="text-center">
+          <span
+            >A comfortable listening level differs from one individual to
+            the next. Please find your own comfortable listening level. You
+            should be able to clearly hear numbers being spoken. Setting the
+            volume levels “too loud” or “too soft” will risk the accuracy of
+            your hearing screener results.</span
+          >
+        </div>
+
+      </div>
+    </div>
+
+
     <headerVue />
       <div class="flex-align flex-mobile-align">
         <div class="left-side mobile-left mobile-left-side">
@@ -24,10 +57,7 @@
           </div>
           <a class="volume-info-link" @click="toggleTooltip">What is a comfortable listening level?</a>
         </div>
-        <div 
-          class="align-content-space-between mt-16 mobile-popup"
-          :style="{ display: isTooltipVisible ? 'block' : 'none' }"
-        >
+        <div class="align-content-space-between mt-16 desktop-only">
           <div class="media">
             <div class="media__icon mt-1 mr-2">
               <v-btn color="#1F2F40;" height="60">
@@ -46,7 +76,7 @@
                 /></v-btn>
                 
               </div>
-              <p class="mb-2 mx-16">What is a comfortable listening level?</p>
+              <p class="mb-2">What is a comfortable listening level?</p>
 
               <span
                 >A comfortable listening level differs from one individual to
@@ -75,7 +105,7 @@
         </div>
       </div>
       <div ref="myBtn" class="back-office-page mobile-right right-side">
-        <headephone />
+        <headephone isPlaying />
       </div>
     </div>
     <AppFooterVue />
@@ -98,7 +128,7 @@ export default {
     return {
       slider1: 0,
       volume:0.2,
-      isTooltipVisible: true
+      isTooltipVisible: false
     };
   },
      watch: {
@@ -257,6 +287,7 @@ track.connect(gainNode).connect(panner).connect(audioCtx.destination);
   display: none;
 }
 @media only screen and (max-width: 800px) {
+
   .mobile-popup {
     /* display: none; */
 
@@ -304,13 +335,17 @@ track.connect(gainNode).connect(panner).connect(audioCtx.destination);
 
   }
   .align-content-space-between {
-    flex-direction: column;
+    display: block;
+    text-align: center;
+  }
+  .desktop-only {
+    display: none;
   }
   .volume-info-link {
     display: inline-block;
     color: #FFB404;
     margin: 10px 0;
-    /* border-bottom: 1px solid #FFB404; */
+    border-bottom: 1px dotted #FFB404;
 
 
     font-family: 'Lato';
