@@ -150,7 +150,6 @@
         <div class="audien-title">
           <span class="mb-5 steps">Finish</span>
           <h1 class="mt-5">Thank you for taking our <span>hearing screener</span></h1>
-          <p class="mb-5">Hearing solutions an Audient Hearing</p>
         </div>
         <div class="mobile-products-container">
           <div class="product-item">
@@ -268,7 +267,7 @@
 
                   <v-btn
                     class="buy-now-btn mt-2"
-                    @click="buytwo"
+                    @click="buyOne"
                     color="#ffb404"
                   >
                     <img :src="require('@/assets/media/icon-cart-black.png')" />
@@ -330,7 +329,7 @@
 
                   <v-btn
                     class="buy-now-btn mt-2"
-                    @click="buyOne"
+                    @click="buytwo"
                     color="#ffb404"
                   >
                     <img :src="require('@/assets/media/icon-cart-black.png')" />

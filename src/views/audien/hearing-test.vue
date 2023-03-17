@@ -8,9 +8,8 @@
           <h1 class="mt-5">Hearing Test</h1>
   
           <p class="mt-5">
-            Click 'Start' to begin, then click the 'Can't Hear' button when you
-            can no longer hear the sound
-       
+            Click Start to begin, then use the <b style="font-weight: 700">+/-</b> buttons to 
+            adjust the volume to the faintest level you can hear. Click Next when done.
           </p>
            <p v-if="unplayed.length==0" class="mt-5">
             Test Successfully completed.
@@ -44,7 +43,7 @@
             <v-btn
               v-if="selectedEar==-1"
               class="warning-button warning-button__ear mt-10"
-             
+              disabled
               
               style="width: 60%">
               <img class="mr-2" :src="require('@/assets/media/user-ear.png')" />Left ear 
@@ -52,6 +51,7 @@
             <v-btn
               v-if="selectedEar==0"
               class="warning-button warning-button__ear mt-10"
+              disabled
              
               
               style="width: 60%">
@@ -60,6 +60,7 @@
             <v-btn
               v-if="selectedEar==1"
               class="warning-button warning-button__ear mt-10"
+              disabled
              
               
               style="width: 60%">
@@ -529,6 +530,9 @@ track.connect(gainNode).connect(panner).connect(audioCtx.destination);
 }
 .theme--light.v-btn.v-btn--disabled.v-btn--has-bg {
     background-color: rgb(255 180 4 / 57%) !important;
+}
+.warning-button__ear.theme--light.v-btn.v-btn--disabled.v-btn--has-bg {
+    background: #1F2F40 !important;
 }
 .align-step-button {
   /* width: 26vw;

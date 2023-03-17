@@ -39,6 +39,7 @@
         <div class="audien-title">
           <span class="mb-5 steps">STEP 4 of 20</span>
           <h1>Adjust the volume to a comfortable listening level</h1>
+          <p>Turn the volume all the way up on your device, then adjust the test volume using the slider below to a comfortable listening level.</p>
         </div>
         <div class="align-content-space-between mt-5">
           <div
@@ -353,6 +354,10 @@ track.connect(gainNode).connect(panner).connect(audioCtx.destination);
     font-weight: 700;
     line-height: 20px;
     text-align: center;
+  }
+  .audien-title p {
+    font-size: 14px;
+    line-height: 20px;
   }
 }
 </style>
