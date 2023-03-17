@@ -92,6 +92,9 @@ export default {
    watch: {
     // whenever question changes, this function will run
     ear(selectedEar, oldQuestion) {
+      if(selectedEar==0){
+          this.$awn.alert('Please use stereo headphones or earphones that do not have noise cancellation or any filters applied. Bluetooth headphones or earphones often have mono audio output only. Try using wired headphones or earphones.', {labels:{alert: 'Unfortunately, your headphones are not supported by this test.'}})
+      }
      panner.pan.value = selectedEar;
       // this.refreshData();
       	// panner.pan.value = newQuestion;	

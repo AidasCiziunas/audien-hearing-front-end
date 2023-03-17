@@ -4,19 +4,16 @@
     <div class="flex-align flex-mobile-align">
       <div class="left-side mobile-left mobile-left-side">
         <div class="audien-title">
-          <span class="mb-5 steps">STEP {{6+playedSound.length}} of 20</span>
+          <span class="mb-5 steps">STEP {{6+playedSound.length==14?13:6+playedSound.length}} of 20</span>
           <h1 class="mt-5">Hearing Test</h1>
   
           <p class="mt-5">
             Click Start to begin, then use the <b style="font-weight: 700">+/-</b> buttons to 
             adjust the volume to the faintest level you can hear. Click Next when done.
           </p>
-           <p v-if="unplayed.length==0" class="mt-5">
-            Test Successfully completed.
-       
-          </p>
+           
         </div>
-        <div v-if="unplayed.length>0" class="align-content-steps">
+        <div  class="align-content-steps">
           <div class="align-btn">
             <v-btn
               v-if="!played"
@@ -68,7 +65,7 @@
             </v-btn>
           </div>
         </div>
-        <div v-if="unplayed.length>0" class="align-content-space-between">
+        <div  class="align-content-space-between">
           <div class="volume mt-10">
             <v-slider
               track-color="linear-gradient(
@@ -141,7 +138,7 @@
             class="warning-button mt-5"
             style="width: 65%"
             @click="suspendNext()"
-            >Next step
+            >Next step 
             <img class="ml-2" :src="require('@/assets/media/arrow-right.png')"
           /></v-btn>
           <v-btn
@@ -150,9 +147,9 @@
             style="width: 65%"
             :disabled="!hearingTest[currentPlayedIndex].played"
             @click="NextPlay()"
-            >Next
-            <!-- <img class="ml-2" :src="require('@/assets/media/arrow-right.png')" -->
-          <!-- /> -->
+            >Next step
+            <img class="ml-2" :src="require('@/assets/media/arrow-right.png')" 
+           />
           </v-btn>
              <audio ref="test" id="audio" :src="hearingTest[currentPlayedIndex].sound.default" crossorigin="anonymous" ></audio>
         </div>
@@ -350,18 +347,22 @@ let seletecdSound = this.audios.slice(0, 8).map(function () {
            audioElement.pause()
          }
          this.volume =1;
+         if(this.playedSound.length>7){
+           this.$router.push('/completing-hearing');
+         }
     },
     NextPlay(){
      let volume = (this.volume/100)*10;
      let soundId = this.hearingTest[this.currentPlayedIndex].id;
      apiClient.post("attempt-test?id="+this.$store.state.HearingTest.ID,{
       "sound_id": soundId,
-      "sound_volume": volume==0?1:this.volume
+      "sound_volume": volume==0?1:volume
      }).then((response)=>{
 
-     ;
+     
        this.$store.dispatch('nextSound',this.currentPlayedIndex+1)
        audioElement.pause();
+        this.volume=1;
        console.log('##############')
        this.played=false;
          })
@@ -371,7 +372,7 @@ let seletecdSound = this.audios.slice(0, 8).map(function () {
       console.log(this.played);
       if(this.played===false){
         console.log('@@@@')
-        
+         
          audioElement.play()
        
          }else{
