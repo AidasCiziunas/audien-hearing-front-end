@@ -578,6 +578,7 @@ track.connect(gainNode).connect(panner).connect(audioCtx.destination);
 }
 .warning-button__ear img {
   color: #fff;
+  width: 24%;
 }
 >>> .warning-button__ear .v-btn__content {
   color: #fff !important;
