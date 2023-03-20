@@ -11,9 +11,6 @@
             difficulty typically struggle with
           </p>
         </div>
-        <div class="border-bottom align-content-space-between mt-16">
-          <v-divider></v-divider>
-        </div>
         <div class="align-content-space-between mt-10">
           <div class="media">
             <div class="mt-1">
@@ -87,6 +84,9 @@ export default {
 @media only screen and (min-width: 801px) {
   .start-btn-sm {
     display: none;
+  }
+  .audien-title p {
+    margin-top: 40px;
   }
 }
 @media only screen and (min-width: 300px) and (max-width: 400px) {
@@ -190,12 +190,13 @@ export default {
   }
   .audien-title p {
     min-width: 78vw;
-    width: 82vw;
+    /* width: 82vw; */
+    font-size: 14px;
+    line-height: 24px;
   }
   .align-content-space-between {
-    width: 91vw;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 10px;
+    width: calc(100vw - 20px) !important;
   }
   .audien-title h1 {
     font-size: 48px !important;
@@ -305,13 +306,18 @@ export default {
     color: #102132;
     border-radius: 50%;
   }
-}
-.button-start {
-  /* position: absolute;
-  left: 20%;
-  right: 20%; */
-}
 
+  .align-content-space-between {
+    /* width: 91vw; */
+    margin-left: 20px;
+    margin-right: 20px;
+
+    font-size: 12px;
+    line-height: 20px;
+
+    gap: 3vw;
+  }
+}
 .get-start {
   width: 22vh;
   height: 22vh;

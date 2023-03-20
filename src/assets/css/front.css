@@ -507,7 +507,7 @@
     font-weight: 300;
     font-size: 20px;
     min-width: 25vw;
-    width: 24vw;
+    width: 30vw;
     line-height: 4vh;
     color: #FFFFFF;
 }
@@ -596,7 +596,7 @@ theme--light.v-divider {
 
 
     color: #FFFFFF;
-
+    text-transform: uppercase;
 
     /* Inside auto layout */
 
@@ -1391,12 +1391,10 @@ theme--light.v-divider {
     .audien-title {
         width: initial;
         color: #fff;
-
         height: auto;
-  
         margin-right: 20px;
         margin-left: 20px;
-
+        margin-top: 9vh;
     }
 
     .audien-title h1 {
