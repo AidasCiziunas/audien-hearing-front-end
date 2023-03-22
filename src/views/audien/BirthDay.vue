@@ -173,6 +173,7 @@ export default {
         apiClient.post('birth-year?id='+this.$store.state.HearingTest.dataLog.id,{
         birth_year:this.date
       }).then((response)=>{
+        this.$store.dispatch("testId",response.data['test-configuration'].id)
        this.$router.push('/best-result')
       })
       }

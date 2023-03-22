@@ -134,7 +134,10 @@ const router = new Router({
 
 router.beforeEach((to, from, next)=>{
   console.log(store.state.HearingTest.ID);
-  if(store.state.HearingTest.ID){
+  if(to.path=='/finish' || to.path=='/aid-simulator' ){
+    store.dispatch('resetStore')
+  }
+  if(store.state.HearingTest.ID!=null){
    
   apiClient.get("user-added-data?id="+store.state.HearingTest.ID,{}).then((response)=>{
     console.log(response);
