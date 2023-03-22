@@ -75,6 +75,9 @@ export default {
     footerVue,
     headerVue,
   },
+    mounted(){
+     this.$store.dispatch('resetStore')
+  }
 };
 </script>
 <style scoped>
